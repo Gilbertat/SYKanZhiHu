@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9795DF771C7456E600F4307F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF761C7456E600F4307F /* AppDelegate.swift */; };
-		9795DF791C7456E600F4307F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF781C7456E600F4307F /* ViewController.swift */; };
 		9795DF7C1C7456E600F4307F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9795DF7A1C7456E600F4307F /* Main.storyboard */; };
 		9795DF7E1C7456E600F4307F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9795DF7D1C7456E600F4307F /* Assets.xcassets */; };
 		9795DF811C7456E600F4307F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9795DF7F1C7456E600F4307F /* LaunchScreen.storyboard */; };
+		9795DF901C7460F800F4307F /* SYHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF8B1C7460F800F4307F /* SYHomeViewController.swift */; };
+		9795DF921C74615C00F4307F /* SYHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF911C74615C00F4307F /* SYHomeModel.swift */; };
+		9795DF941C74617800F4307F /* SYRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF931C74617800F4307F /* SYRankingViewController.swift */; };
+		9795DF961C74619A00F4307F /* SYRankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF951C74619A00F4307F /* SYRankingModel.swift */; };
+		9795DF9B1C746A3800F4307F /* SYDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */; };
+		9795DF9D1C746A4500F4307F /* SYHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF9C1C746A4500F4307F /* SYHttpManager.swift */; };
+		9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DFA01C74714E00F4307F /* BaseManager.swift */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +26,17 @@
 		93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYKanZhihu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9795DF731C7456E600F4307F /* SYKanZhihu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYKanZhihu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9795DF761C7456E600F4307F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9795DF781C7456E600F4307F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9795DF7B1C7456E600F4307F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9795DF7D1C7456E600F4307F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9795DF801C7456E600F4307F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9795DF821C7456E600F4307F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9795DF8B1C7460F800F4307F /* SYHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHomeViewController.swift; sourceTree = "<group>"; };
+		9795DF911C74615C00F4307F /* SYHomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHomeModel.swift; sourceTree = "<group>"; };
+		9795DF931C74617800F4307F /* SYRankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRankingViewController.swift; sourceTree = "<group>"; };
+		9795DF951C74619A00F4307F /* SYRankingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYRankingModel.swift; sourceTree = "<group>"; };
+		9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYDataBaseManager.swift; sourceTree = "<group>"; };
+		9795DF9C1C746A4500F4307F /* SYHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHttpManager.swift; sourceTree = "<group>"; };
+		9795DFA01C74714E00F4307F /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,14 +82,100 @@
 		9795DF751C7456E600F4307F /* SYKanZhihu */ = {
 			isa = PBXGroup;
 			children = (
+				9795DF881C7460F800F4307F /* Class */,
 				9795DF761C7456E600F4307F /* AppDelegate.swift */,
-				9795DF781C7456E600F4307F /* ViewController.swift */,
 				9795DF7A1C7456E600F4307F /* Main.storyboard */,
 				9795DF7D1C7456E600F4307F /* Assets.xcassets */,
 				9795DF7F1C7456E600F4307F /* LaunchScreen.storyboard */,
 				9795DF821C7456E600F4307F /* Info.plist */,
 			);
 			path = SYKanZhihu;
+			sourceTree = "<group>";
+		};
+		9795DF881C7460F800F4307F /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF891C7460F800F4307F /* Home */,
+				9795DF8D1C7460F800F4307F /* Ranking */,
+				9795DF971C74670700F4307F /* Manager */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		9795DF891C7460F800F4307F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF8A1C7460F800F4307F /* Controller */,
+				9795DF8C1C7460F800F4307F /* Model */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9795DF8A1C7460F800F4307F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF8B1C7460F800F4307F /* SYHomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9795DF8C1C7460F800F4307F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF911C74615C00F4307F /* SYHomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9795DF8D1C7460F800F4307F /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF8E1C7460F800F4307F /* Controller */,
+				9795DF8F1C7460F800F4307F /* Model */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		9795DF8E1C7460F800F4307F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF931C74617800F4307F /* SYRankingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9795DF8F1C7460F800F4307F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF951C74619A00F4307F /* SYRankingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9795DF971C74670700F4307F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF981C74670700F4307F /* SYDataBaseManager */,
+				9795DF991C74670700F4307F /* SYHttpManager */,
+				9795DFA01C74714E00F4307F /* BaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9795DF981C74670700F4307F /* SYDataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */,
+			);
+			path = SYDataBaseManager;
+			sourceTree = "<group>";
+		};
+		9795DF991C74670700F4307F /* SYHttpManager */ = {
+			isa = PBXGroup;
+			children = (
+				9795DF9C1C746A4500F4307F /* SYHttpManager.swift */,
+			);
+			path = SYHttpManager;
 			sourceTree = "<group>";
 		};
 		F3302FA8222A6F6447FEAEE1 /* Frameworks */ = {
@@ -211,7 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9795DF791C7456E600F4307F /* ViewController.swift in Sources */,
+				9795DF921C74615C00F4307F /* SYHomeModel.swift in Sources */,
+				9795DF941C74617800F4307F /* SYRankingViewController.swift in Sources */,
+				9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */,
+				9795DF9B1C746A3800F4307F /* SYDataBaseManager.swift in Sources */,
+				9795DF961C74619A00F4307F /* SYRankingModel.swift in Sources */,
+				9795DF901C7460F800F4307F /* SYHomeViewController.swift in Sources */,
+				9795DF9D1C746A4500F4307F /* SYHttpManager.swift in Sources */,
 				9795DF771C7456E600F4307F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
