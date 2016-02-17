@@ -1,0 +1,6 @@
+framework module Pods_SYKanZhihu {
+  umbrella header "Pods-SYKanZhihu-umbrella.h"
+
+  export *
+  module * { export * }
+}
