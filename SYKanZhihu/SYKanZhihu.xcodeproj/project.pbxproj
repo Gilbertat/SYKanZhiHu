@@ -18,6 +18,7 @@
 		9795DF9B1C746A3800F4307F /* SYDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */; };
 		9795DF9D1C746A4500F4307F /* SYHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF9C1C746A4500F4307F /* SYHttpManager.swift */; };
 		9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DFA01C74714E00F4307F /* BaseManager.swift */; };
+		9795DFA31C748BFB00F4307F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9795DFA21C748BFB00F4307F /* Default-568h@2x.png */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYDataBaseManager.swift; sourceTree = "<group>"; };
 		9795DF9C1C746A4500F4307F /* SYHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHttpManager.swift; sourceTree = "<group>"; };
 		9795DFA01C74714E00F4307F /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		9795DFA21C748BFB00F4307F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 		9795DF6A1C7456E600F4307F = {
 			isa = PBXGroup;
 			children = (
+				9795DFA21C748BFB00F4307F /* Default-568h@2x.png */,
 				9795DF751C7456E600F4307F /* SYKanZhihu */,
 				9795DF741C7456E600F4307F /* Products */,
 				39A68A53A3C6DFC3AE504CDB /* Pods */,
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9795DF811C7456E600F4307F /* LaunchScreen.storyboard in Resources */,
+				9795DFA31C748BFB00F4307F /* Default-568h@2x.png in Resources */,
 				9795DF7E1C7456E600F4307F /* Assets.xcassets in Resources */,
 				9795DF7C1C7456E600F4307F /* Main.storyboard in Resources */,
 			);

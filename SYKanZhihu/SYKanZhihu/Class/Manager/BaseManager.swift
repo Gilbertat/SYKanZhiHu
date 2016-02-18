@@ -8,5 +8,11 @@
 
 import Foundation
 
-public let baseUrl = "http://api.kanzhihu.com/getposts"
-public let page = ""
+class ApiConfig {
+    
+    static let API_Url:String = "http://api.kanzhihu.com/getposts"
+    
+    static let API_Page:String = ""
+    
+}
+    
