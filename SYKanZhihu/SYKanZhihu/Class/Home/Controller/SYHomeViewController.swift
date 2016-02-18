@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SYHomeViewController: UIViewController {
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.title = "首页"
     }
 
     override func didReceiveMemoryWarning() {
