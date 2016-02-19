@@ -27,7 +27,6 @@
 		640B06AFF76B11A9913F9F57 /* Pods-SYKanZhihu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.release.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.release.xcconfig"; sourceTree = "<group>"; };
 		93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYKanZhihu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971957821C760B360069C7B4 /* SYHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHomeTableViewCell.swift; sourceTree = "<group>"; };
-		971957841C76B6220069C7B4 /* JSONNeverDie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONNeverDie.framework; path = Carthage/Build/iOS/JSONNeverDie.framework; sourceTree = "<group>"; };
 		9795DF731C7456E600F4307F /* SYKanZhihu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYKanZhihu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9795DF761C7456E600F4307F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9795DF7B1C7456E600F4307F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -196,7 +195,6 @@
 		F3302FA8222A6F6447FEAEE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				971957841C76B6220069C7B4 /* JSONNeverDie.framework */,
 				93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */,
 			);
 			name = Frameworks;
