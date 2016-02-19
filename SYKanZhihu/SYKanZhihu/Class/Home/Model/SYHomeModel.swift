@@ -13,7 +13,7 @@ class HomeModel {
     //文章编号
     var id:String?
     //发表日期
-    var data:String?
+    var date:String?
     //文章名称
     var name:String?
     //抬头图
@@ -29,7 +29,7 @@ class HomeModel {
         self.init()
         
         self.id = dict["id"] as? String
-        self.data = dict["data"] as? String
+        self.date = dict["date"] as? String
         self.name = dict["name"] as? String
         self.pic = dict["pic"] as? String
         self.publishtime = dict["publishtime"] as? String

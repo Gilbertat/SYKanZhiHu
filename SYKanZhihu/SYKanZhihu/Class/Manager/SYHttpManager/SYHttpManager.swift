@@ -26,9 +26,10 @@ class SYHttp:NSObject {
         
         Alamofire.request(.GET, url, parameters: params).responseString(completionHandler: {response in
             switch response.result {
-            case .Success(let str):
+            case.Success(_):
                 print("请求地址为: \(url) 参数为: \(params)")
-                success(json: str)
+                success(json:response.data!)
+                
             case .Failure(let error):
                 fail(error: error)
                 print(error)
