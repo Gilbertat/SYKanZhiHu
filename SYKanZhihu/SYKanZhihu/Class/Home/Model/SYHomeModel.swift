@@ -24,6 +24,8 @@ class HomeModel {
     var count:String?
     //摘要文字
     var excerpt:String?
+    //收集状态转中文
+    var categoryName:Dictionary<String,String>?
     
     convenience init(dict:NSDictionary) {
         self.init()
@@ -35,6 +37,9 @@ class HomeModel {
         self.publishtime = dict["publishtime"] as? String
         self.count = dict["count"] as? String
         self.excerpt = dict["excerpt"] as? String
+        self.categoryName = ["recent":"近日热门",
+                            "yesterday":"昨日最新",
+                            "archive":"历史精华"]
     }
     
 }

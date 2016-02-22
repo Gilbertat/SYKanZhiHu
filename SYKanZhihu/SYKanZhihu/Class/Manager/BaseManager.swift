@@ -11,6 +11,7 @@ import Foundation
 class ApiConfig {
     
     static let API_Url:String = "http://api.kanzhihu.com/getposts"
-        
+    
+    static let API_List_Url:String = "http://api.kanzhihu.com/getpostanswers"
 }
     
