@@ -24,8 +24,12 @@ class ListDetailModel {
     var authorhash:String?
     //用户头像
     var avatar:String?
+    //用户回答
+    var summary:String?
     //赞同数
     var vote:String?
+    //更新状态说明
+    var categoryName:Dictionary<String,String>?
     
     convenience init(dict:NSDictionary) {
         self.init()
@@ -37,6 +41,10 @@ class ListDetailModel {
         self.authorhash = dict["authorhash"] as? String
         self.avatar = dict["avatar"] as? String
         self.vote = dict["vote"] as? String
+        self.summary = dict["summary"] as? String
+        self.categoryName = ["recent":"近日热门",
+                            "yesterday":"昨日最新",
+                            "archive":"历史精华"]
     }
     
     

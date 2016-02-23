@@ -14,10 +14,9 @@ class SYHomeViewController: UIViewController {
     var dataSource : Array<HomeModel> = Array()
     @IBOutlet weak var tableView: UITableView!
     var page = ""
-    var array = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 68.0
+        tableView.estimatedRowHeight = 85.5
         tableView.rowHeight = UITableViewAutomaticDimension
         self.page = ""
         httpRequest()
@@ -51,6 +50,7 @@ class SYHomeViewController: UIViewController {
         navigationController?.hidesBarsOnSwipe = true
     }
     
+    //segue传值,用于聚合下列表请求数据
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewList" {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -58,6 +58,7 @@ class SYHomeViewController: UIViewController {
                 let destinationController = segue.destinationViewController as! SYListDetailViewController
                 destinationController.requestDate = model.date!
                 destinationController.requestState = model.name!
+                destinationController.avaterUrl = model.pic!
             }
         }
     }
@@ -78,6 +79,7 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
         
     }
     
+       
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SYHomeTableViewCell
         
@@ -89,6 +91,7 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
         
         return cell
     }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }

@@ -1,5 +1,5 @@
 //
-//  SYListDetailTableViewCell.swift
+//  SYListQuestionTableViewCell.swift
 //  SYKanZhihu
 //
 //  Created by shiyue on 16/2/22.
@@ -8,12 +8,9 @@
 
 import UIKit
 
-class SYListDetailTableViewCell: UITableViewCell {
+class SYListQuestionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var avaterImg: UIImageView!
-    @IBOutlet weak var authorLabel: UIButton!
-    @IBOutlet weak var voteLabel: UILabel!
-    @IBOutlet weak var SummaryLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

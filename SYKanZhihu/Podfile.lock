@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (3.2.0)
+  - Kingfisher (2.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - Kingfisher (~> 2.0)
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
 
-PODFILE CHECKSUM: b74c2e82a933c86bb0eab7d6ba41659e2702288c
+PODFILE CHECKSUM: 1914ccc867c871723858c6df0368f12b597b5272
 
 COCOAPODS: 1.0.0.beta.3
