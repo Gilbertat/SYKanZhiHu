@@ -16,9 +16,11 @@ class SYHomeViewController: UIViewController {
     var page = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.estimatedRowHeight = 85.5
         tableView.rowHeight = UITableViewAutomaticDimension
         self.page = ""
+        
         httpRequest()
     }
     
