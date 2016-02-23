@@ -16,5 +16,13 @@ class SYHomeTableViewCell: UITableViewCell {
     @IBOutlet weak var describeLabel: UILabel!
 
    
+    func reciveList(model:HomeModel) {
+        
+        self.describeLabel.text = model.excerpt
+        let dateArray = model.date?.componentsSeparatedByString("-") //剔除字段中的“-”
+        self.dataLabel.text = "\(dateArray![0])年\(dateArray![1])月\(dateArray![2])日" //拼接字符串
+        self.stateLabel.text = model.categoryName![model.name!]
+        
+    }
     
 }

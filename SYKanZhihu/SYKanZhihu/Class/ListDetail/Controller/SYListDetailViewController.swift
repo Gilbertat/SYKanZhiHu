@@ -15,6 +15,7 @@ class SYListDetailViewController: UIViewController {
     var requestDate = ""
     var requestState = ""
     var avaterUrl = ""
+    var catagoryName = ""
     var dataSource:Array<ListDetailModel> = Array()
     @IBOutlet weak var tableView: UITableView!
     var avaterView = UIImageView()
@@ -26,9 +27,17 @@ class SYListDetailViewController: UIViewController {
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        //tableHeaderView
         self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
         avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
         self.tableView.tableHeaderView = avaterView
+        
+        //设置title
+        let dataArray = requestDate.componentsSeparatedByString("-")
+        let date = "\(dataArray[0])年\(dataArray[1])月\(dataArray[2])日"
+        
+        self.title = date + self.catagoryName
+        
         
         //请求数据
         self.requestData()
@@ -88,6 +97,7 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let model:ListDetailModel = self.dataSource[indexPath.section]
+        
         if 0 == indexPath.row {
             let cell = tableView.dequeueReusableCellWithIdentifier("questionCell", forIndexPath: indexPath) as! SYListQuestionTableViewCell
             cell.titleLabel.text = model.title
@@ -96,10 +106,8 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! SYListDetailTableViewCell
-            cell.avaterImg.kf_setImageWithURL(NSURL(string: model.avatar!)!)
-            cell.voteLabel.text = model.vote
-            cell.SummaryLabel.text = model.summary
-            cell.authorLabel.setTitle(model.authorname, forState: .Normal)
+
+            cell.setAnswer(model)
             
             return cell
         }

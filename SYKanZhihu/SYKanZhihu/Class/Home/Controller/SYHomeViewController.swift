@@ -59,6 +59,7 @@ class SYHomeViewController: UIViewController {
                 destinationController.requestDate = model.date!
                 destinationController.requestState = model.name!
                 destinationController.avaterUrl = model.pic!
+                destinationController.catagoryName = model.categoryName![model.name!]!
             }
         }
     }
@@ -84,10 +85,8 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SYHomeTableViewCell
         
         let model:HomeModel = self.dataSource[indexPath.row]
-        cell.describeLabel.text = model.excerpt
-        let dateArray = model.date?.componentsSeparatedByString("-") //剔除字段中的“-”
-        cell.dataLabel.text = "\(dateArray![0])年\(dateArray![1])月\(dateArray![2])日" //拼接字符串
-        cell.stateLabel.text = model.categoryName![model.name!]
+        
+        cell.reciveList(model)
         
         return cell
     }
