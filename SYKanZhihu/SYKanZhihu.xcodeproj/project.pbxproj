@@ -24,6 +24,7 @@
 		97FB57D21C7AAEBA00CF06BA /* SYListDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D11C7AAEBA00CF06BA /* SYListDetailModel.swift */; };
 		97FB57D41C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D31C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift */; };
 		97FB57D61C7B41B200CF06BA /* SYListQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D51C7B41B200CF06BA /* SYListQuestionTableViewCell.swift */; };
+		97FCFAB21C7C5B4700AD78FA /* universalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAB11C7C5B4700AD78FA /* universalManager.swift */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		97FB57D11C7AAEBA00CF06BA /* SYListDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListDetailModel.swift; sourceTree = "<group>"; };
 		97FB57D31C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListDetailTableViewCell.swift; sourceTree = "<group>"; };
 		97FB57D51C7B41B200CF06BA /* SYListQuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		97FCFAB11C7C5B4700AD78FA /* universalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = universalManager.swift; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 				9795DF981C74670700F4307F /* SYDataBaseManager */,
 				9795DF991C74670700F4307F /* SYHttpManager */,
 				9795DFA01C74714E00F4307F /* BaseManager.swift */,
+				97FCFAB11C7C5B4700AD78FA /* universalManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9795DF921C74615C00F4307F /* SYHomeModel.swift in Sources */,
+				97FCFAB21C7C5B4700AD78FA /* universalManager.swift in Sources */,
 				97FB57D61C7B41B200CF06BA /* SYListQuestionTableViewCell.swift in Sources */,
 				9795DF941C74617800F4307F /* SYRankingViewController.swift in Sources */,
 				9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */,

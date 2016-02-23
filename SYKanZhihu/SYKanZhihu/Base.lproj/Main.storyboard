@@ -199,6 +199,11 @@
                                                                 <constraint firstAttribute="height" constant="25" id="PZW-Aa-hBY"/>
                                                                 <constraint firstAttribute="width" constant="25" id="jeP-ZP-PAN"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="12"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvb-v5-V6d">
                                                             <rect key="frame" x="38" y="0.0" width="96" height="25"/>
@@ -209,7 +214,7 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="wvb-v5-V6d" firstAttribute="leading" secondItem="o43-ZX-cb5" secondAttribute="trailing" constant="13" id="2vN-px-Tfm"/>
+                                                        <constraint firstItem="wvb-v5-V6d" firstAttribute="leading" secondItem="o43-ZX-cb5" secondAttribute="trailing" constant="13" id="Sqc-6n-U76"/>
                                                         <constraint firstAttribute="width" constant="136" id="ry4-8h-BVS"/>
                                                     </constraints>
                                                     <variation key="default">

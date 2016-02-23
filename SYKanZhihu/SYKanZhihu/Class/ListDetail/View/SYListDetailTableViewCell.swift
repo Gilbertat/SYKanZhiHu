@@ -21,16 +21,32 @@ class SYListDetailTableViewCell: UITableViewCell {
     func setAnswer(model:ListDetailModel) {
         
         self.avaterImg.kf_setImageWithURL(NSURL(string: model.avatar!)!)
-        self.voteLabel.text = model.vote
-        self.SummaryLabel.text = model.summary
-        self.authorLabel.setTitle(model.authorname, forState: .Normal)
         
+        let vote = Double(model.vote!)
+        var stringVote = ""
+        if vote >= 1000 {
+            let nvalue = vote! / 1000.0
+            stringVote = String(format: "%.2gk", nvalue)
+        }
+        else {
+            stringVote = "\(Int(vote!))"
+        }
+        
+        self.voteLabel.text = stringVote
+        
+        if model.summary == "" {
+            self.SummaryLabel.text = "图片"
+        } else {
+            self.SummaryLabel.text = model.summary
+        }
+        self.authorLabel.setTitle(model.authorname, forState: .Normal)
     }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.voteLabel.clipsToBounds = true
+        self.voteLabel.layer.cornerRadius = 2.7
     }
     
 

@@ -94,6 +94,10 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         return 2
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let model:ListDetailModel = self.dataSource[indexPath.section]
@@ -101,13 +105,11 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         if 0 == indexPath.row {
             let cell = tableView.dequeueReusableCellWithIdentifier("questionCell", forIndexPath: indexPath) as! SYListQuestionTableViewCell
             cell.titleLabel.text = model.title
-            
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! SYListDetailTableViewCell
-
-            cell.setAnswer(model)
+                cell.setAnswer(model)
             
             return cell
         }

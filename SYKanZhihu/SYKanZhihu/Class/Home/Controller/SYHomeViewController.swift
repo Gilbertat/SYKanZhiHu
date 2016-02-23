@@ -32,8 +32,8 @@ class SYHomeViewController: UIViewController {
             for dict in array {
                 let homeModel:HomeModel = HomeModel(dict: dict as! NSDictionary)
                 self.dataSource.append(homeModel)
-                
             }
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
@@ -82,6 +82,7 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
     
        
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SYHomeTableViewCell
         
         let model:HomeModel = self.dataSource[indexPath.row]
