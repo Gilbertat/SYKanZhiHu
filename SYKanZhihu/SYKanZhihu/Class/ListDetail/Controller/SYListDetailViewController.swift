@@ -43,9 +43,11 @@ class SYListDetailViewController: UIViewController {
         self.requestData()
     }
     func requestData() {
+        
         let dataArray = self.requestDate.componentsSeparatedByString("-")
         let data = "\(dataArray[0])\(dataArray[1])\(dataArray[2])"
         let url = "\(ApiConfig.API_List_Url)/\(data)/\(requestState)"
+        
         SYHttp.get(url, params: nil, success: { (json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["answers"] as? NSArray)!

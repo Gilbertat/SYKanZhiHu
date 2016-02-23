@@ -25,6 +25,7 @@ class SYHomeViewController: UIViewController {
     func httpRequest() {
         
         let urlString = "\(ApiConfig.API_Url)/\(self.page)"
+        
         SYHttp.get(urlString, params: nil, success: {(json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["posts"] as? NSArray)!
@@ -53,6 +54,7 @@ class SYHomeViewController: UIViewController {
     //segue传值,用于聚合下列表请求数据
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewList" {
+            
             if let indexPath = tableView.indexPathForSelectedRow {
                 let model:HomeModel = self.dataSource[indexPath.row]
                 let destinationController = segue.destinationViewController as! SYListDetailViewController
@@ -60,6 +62,7 @@ class SYHomeViewController: UIViewController {
                 destinationController.requestState = model.name!
                 destinationController.avaterUrl = model.pic!
                 destinationController.catagoryName = model.categoryName![model.name!]!
+                
             }
         }
     }
@@ -68,7 +71,6 @@ class SYHomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
 
     }
-
     
 }
 
@@ -80,7 +82,6 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
         
     }
     
-       
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! SYHomeTableViewCell

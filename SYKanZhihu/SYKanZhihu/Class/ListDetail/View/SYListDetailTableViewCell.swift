@@ -15,9 +15,6 @@ class SYListDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var SummaryLabel: UILabel!
     
-    
-    
-    
     func setAnswer(model:ListDetailModel) {
         
         self.avaterImg.kf_setImageWithURL(NSURL(string: model.avatar!)!)
@@ -35,7 +32,7 @@ class SYListDetailTableViewCell: UITableViewCell {
         self.voteLabel.text = stringVote
         
         if model.summary == "" {
-            self.SummaryLabel.text = "图片"
+            self.SummaryLabel.text = "[图片]"
         } else {
             self.SummaryLabel.text = model.summary
         }
