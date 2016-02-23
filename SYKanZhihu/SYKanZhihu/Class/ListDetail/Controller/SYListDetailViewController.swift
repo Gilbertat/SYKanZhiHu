@@ -17,21 +17,26 @@ class SYListDetailViewController: UIViewController {
     var avaterUrl = ""
     var dataSource:Array<ListDetailModel> = Array()
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var avaterView: UIImageView!
+    var avaterView = UIImageView()
+    let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        //请求用户图
+        
+        self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
+        avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
+        self.tableView.tableHeaderView = avaterView
+        
+        //请求数据
         self.requestData()
     }
     func requestData() {
         let dataArray = self.requestDate.componentsSeparatedByString("-")
         let data = "\(dataArray[0])\(dataArray[1])\(dataArray[2])"
         let url = "\(ApiConfig.API_List_Url)/\(data)/\(requestState)"
-        avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
         SYHttp.get(url, params: nil, success: { (json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["answers"] as? NSArray)!

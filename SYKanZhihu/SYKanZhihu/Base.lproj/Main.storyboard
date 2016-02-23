@@ -147,16 +147,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SkJ-uk-a7C">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="71" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="SkJ-uk-a7C">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
-                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fp0-nS-Ejh">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="160"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" rowHeight="44" id="Y8n-Th-dBq" customClass="SYListQuestionTableViewCell" customModule="SYKanZhihu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y8n-Th-dBq" id="Ubk-bT-Ecc">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -181,21 +177,21 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="answerCell" id="tFp-Xn-SJs" customClass="SYListDetailTableViewCell" customModule="SYKanZhihu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="296" width="600" height="71"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="600" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tFp-Xn-SJs" id="eIy-Nw-aKq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-gY-z1M">
-                                                    <rect key="frame" x="6" y="45" width="33" height="14"/>
+                                                    <rect key="frame" x="6" y="45" width="33" height="13.5"/>
                                                     <color key="backgroundColor" red="0.32941176470588235" green="0.63529411764705879" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeA-gB-jHe">
-                                                    <rect key="frame" x="10" y="13" width="136" height="25"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="IeA-gB-jHe">
+                                                    <rect key="frame" x="10" y="13" width="134" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="o43-ZX-cb5">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -205,7 +201,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvb-v5-V6d">
-                                                            <rect key="frame" x="25" y="0.0" width="111" height="25"/>
+                                                            <rect key="frame" x="38" y="0.0" width="96" height="25"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <state key="normal" title="AuthorName">
                                                                 <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,11 +209,17 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="wvb-v5-V6d" firstAttribute="leading" secondItem="o43-ZX-cb5" secondAttribute="trailing" constant="13" id="2vN-px-Tfm"/>
                                                         <constraint firstAttribute="width" constant="136" id="ry4-8h-BVS"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="ry4-8h-BVS"/>
+                                                        </mask>
+                                                    </variation>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRp-Tw-MIv">
-                                                    <rect key="frame" x="52" y="45" width="540" height="17"/>
+                                                    <rect key="frame" x="49" y="43" width="543" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -225,12 +227,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Pzq-gY-z1M" firstAttribute="centerX" secondItem="o43-ZX-cb5" secondAttribute="centerX" id="0zM-vP-sFG"/>
-                                                <constraint firstAttribute="bottom" secondItem="eRp-Tw-MIv" secondAttribute="bottom" constant="8.5" id="940-6t-VMh"/>
-                                                <constraint firstItem="eRp-Tw-MIv" firstAttribute="leading" secondItem="Pzq-gY-z1M" secondAttribute="trailing" constant="13" id="CI0-6f-7iB"/>
+                                                <constraint firstAttribute="bottom" secondItem="eRp-Tw-MIv" secondAttribute="bottom" constant="10" id="940-6t-VMh"/>
+                                                <constraint firstItem="eRp-Tw-MIv" firstAttribute="leading" secondItem="Pzq-gY-z1M" secondAttribute="trailing" constant="10" id="CI0-6f-7iB"/>
                                                 <constraint firstItem="IeA-gB-jHe" firstAttribute="top" secondItem="eIy-Nw-aKq" secondAttribute="top" constant="13" id="Mqh-sM-Ruk"/>
                                                 <constraint firstItem="Pzq-gY-z1M" firstAttribute="top" secondItem="IeA-gB-jHe" secondAttribute="bottom" constant="7" id="VFj-Ci-MMK"/>
                                                 <constraint firstAttribute="trailing" secondItem="eRp-Tw-MIv" secondAttribute="trailing" constant="8" id="Y7c-lI-lbI"/>
-                                                <constraint firstItem="eRp-Tw-MIv" firstAttribute="top" secondItem="IeA-gB-jHe" secondAttribute="bottom" constant="7" id="f2N-1K-8fD"/>
+                                                <constraint firstItem="eRp-Tw-MIv" firstAttribute="top" secondItem="IeA-gB-jHe" secondAttribute="bottom" constant="5" id="f2N-1K-8fD"/>
                                                 <constraint firstItem="IeA-gB-jHe" firstAttribute="leading" secondItem="eIy-Nw-aKq" secondAttribute="leading" constant="10" id="ghC-dz-acf"/>
                                                 <constraint firstItem="Pzq-gY-z1M" firstAttribute="leading" secondItem="eIy-Nw-aKq" secondAttribute="leading" constant="6" id="qiV-hJ-IbB"/>
                                             </constraints>
@@ -265,7 +267,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="LUq-K9-mdP"/>
                     <connections>
-                        <outlet property="avaterView" destination="fp0-nS-Ejh" id="VIe-KX-dkd"/>
                         <outlet property="tableView" destination="SkJ-uk-a7C" id="yN5-cR-gkJ"/>
                     </connections>
                 </viewController>
