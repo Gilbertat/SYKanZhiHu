@@ -283,6 +283,24 @@
             </objects>
             <point key="canvasLocation" x="2269" y="73"/>
         </scene>
+        <!--Ranking View Controller-->
+        <scene sceneID="wrq-rK-9LU">
+            <objects>
+                <viewController id="ymD-07-Pfr" customClass="SYRankingViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RiM-IO-VqE"/>
+                        <viewControllerLayoutGuide type="bottom" id="gyw-iu-w2a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dZ8-ZP-kZG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MDY-wy-1lv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2269" y="850"/>
+        </scene>
         <!--Article Detail View Controller-->
         <scene sceneID="qme-lo-7KO">
             <objects>
