@@ -39,6 +39,7 @@ class SYListDetailTableViewCell: UITableViewCell {
         self.authorLabel.setTitle(model.authorname, forState: .Normal)
     }
     
+    //swift getter setter 方法
     override var frame:CGRect {
         get {
             return super.frame
@@ -52,11 +53,29 @@ class SYListDetailTableViewCell: UITableViewCell {
     }
     
     override func drawRect(rect: CGRect) {
+        //切左下右下圆角
         let maskPath = UIBezierPath(roundedRect:self.bounds, byRoundingCorners:[.BottomLeft,.BottomRight], cornerRadii: CGSizeMake(5.0, 5.0))
         let maskLayer = CAShapeLayer()
         maskLayer.frame = self.bounds
         maskLayer.path = maskPath.CGPath
         self.layer.mask = maskLayer
+        
+        
+        //添加border
+        let borderLayer = CAShapeLayer()
+        borderLayer.frame = self.bounds
+        borderLayer.path = maskPath.CGPath
+        borderLayer.lineWidth = 0.5
+        borderLayer.strokeColor = UIColor.lightGrayColor().CGColor
+        borderLayer.fillColor = UIColor.clearColor().CGColor
+        
+        let layers:NSArray = self.layer.sublayers! as NSArray
+        
+        if ((layers.lastObject!.isKindOfClass(CAShapeLayer))) {
+            layers.lastObject?.removeFromSuperlayer()
+        }
+        self.layer.addSublayer(borderLayer)
+
     }
 
     
