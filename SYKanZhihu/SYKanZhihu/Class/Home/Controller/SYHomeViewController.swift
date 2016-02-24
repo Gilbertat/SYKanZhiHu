@@ -51,6 +51,7 @@ class SYHomeViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.title = "精华"
         navigationController?.hidesBarsOnSwipe = true
+     
     }
     
     //segue传值,用于聚合下列表请求数据

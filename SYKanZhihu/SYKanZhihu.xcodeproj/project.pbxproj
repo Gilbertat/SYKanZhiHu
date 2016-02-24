@@ -25,6 +25,7 @@
 		97FB57D41C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D31C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift */; };
 		97FB57D61C7B41B200CF06BA /* SYListQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D51C7B41B200CF06BA /* SYListQuestionTableViewCell.swift */; };
 		97FCFAB21C7C5B4700AD78FA /* universalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAB11C7C5B4700AD78FA /* universalManager.swift */; };
+		97FCFAB61C7D69F500AD78FA /* SYArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAB51C7D69F500AD78FA /* SYArticleDetailViewController.swift */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		97FB57D31C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListDetailTableViewCell.swift; sourceTree = "<group>"; };
 		97FB57D51C7B41B200CF06BA /* SYListQuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		97FCFAB11C7C5B4700AD78FA /* universalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = universalManager.swift; sourceTree = "<group>"; };
+		97FCFAB51C7D69F500AD78FA /* SYArticleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYArticleDetailViewController.swift; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 			children = (
 				9795DF891C7460F800F4307F /* Home */,
 				97FB57CB1C7AAE6C00CF06BA /* ListDetail */,
+				97FCFAB31C7D69B500AD78FA /* ArticleDetail */,
 				9795DF8D1C7460F800F4307F /* Ranking */,
 				9795DF971C74670700F4307F /* Manager */,
 			);
@@ -237,6 +240,22 @@
 				97FB57D51C7B41B200CF06BA /* SYListQuestionTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		97FCFAB31C7D69B500AD78FA /* ArticleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				97FCFAB41C7D69B500AD78FA /* Controller */,
+			);
+			path = ArticleDetail;
+			sourceTree = "<group>";
+		};
+		97FCFAB41C7D69B500AD78FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				97FCFAB51C7D69F500AD78FA /* SYArticleDetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F3302FA8222A6F6447FEAEE1 /* Frameworks */ = {
@@ -380,6 +399,7 @@
 				97FB57D41C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift in Sources */,
 				97FB57D01C7AAE9F00CF06BA /* SYListDetailViewController.swift in Sources */,
 				9795DF9B1C746A3800F4307F /* SYDataBaseManager.swift in Sources */,
+				97FCFAB61C7D69F500AD78FA /* SYArticleDetailViewController.swift in Sources */,
 				9795DF961C74619A00F4307F /* SYRankingModel.swift in Sources */,
 				97FB57D21C7AAEBA00CF06BA /* SYListDetailModel.swift in Sources */,
 				9795DF901C7460F800F4307F /* SYHomeViewController.swift in Sources */,

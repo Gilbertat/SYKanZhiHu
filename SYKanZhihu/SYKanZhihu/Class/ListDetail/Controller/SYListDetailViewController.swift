@@ -44,6 +44,7 @@ class SYListDetailViewController: UIViewController {
     }
     func requestData() {
         
+        //拼接url
         let dataArray = self.requestDate.componentsSeparatedByString("-")
         let data = "\(dataArray[0])\(dataArray[1])\(dataArray[2])"
         let url = "\(ApiConfig.API_List_Url)/\(data)/\(requestState)"
@@ -70,6 +71,23 @@ class SYListDetailViewController: UIViewController {
         self.navigationController?.hidesBarsOnSwipe = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        let indexPath = tableView.indexPathForSelectedRow
+        let model:ListDetailModel = self.dataSource[(indexPath?.section)!]
+        let destinationController = segue.destinationViewController as! SYArticleDetailViewController
+        
+        if segue.identifier == "viewQuestion" {
+            destinationController.questionID = model.questionid!
+        } else {
+            destinationController.questionID = model.questionid!
+            destinationController.answerID = model.answerid!
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
