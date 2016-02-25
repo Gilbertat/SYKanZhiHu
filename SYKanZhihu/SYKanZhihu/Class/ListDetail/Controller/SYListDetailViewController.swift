@@ -73,22 +73,6 @@ class SYListDetailViewController: UIViewController {
 
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        
-//        let indexPath = tableView.indexPathForSelectedRow
-//        let model:ListDetailModel = self.dataSource[(indexPath?.section)!]
-//        let destinationController = segue.destinationViewController as! SYArticleDetailViewController
-//        
-//        if segue.identifier == "viewQuestion" {
-//            destinationController.questionID = model.questionid!
-//        } else {
-//            destinationController.questionID = model.questionid!
-//            destinationController.answerID = model.answerid!
-//        }
-//        
-//        
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

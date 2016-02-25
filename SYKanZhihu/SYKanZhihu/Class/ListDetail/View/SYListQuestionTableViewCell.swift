@@ -45,5 +45,6 @@ class SYListQuestionTableViewCell: UITableViewCell {
             layers.lastObject?.removeFromSuperlayer()
         }
         self.layer.addSublayer(borderLayer)
+        
     }
 }
