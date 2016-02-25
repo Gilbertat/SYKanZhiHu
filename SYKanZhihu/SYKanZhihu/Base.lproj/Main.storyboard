@@ -174,7 +174,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="WvW-2k-3tA" id="WSn-3E-se6"/>
-                                            <segue destination="ir1-aV-Nwp" kind="show" identifier="viewQuestion" id="Nzd-se-5Dy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="answerCell" id="tFp-Xn-SJs" customClass="SYListDetailTableViewCell" customModule="SYKanZhihu" customModuleProvider="target">
@@ -248,7 +247,6 @@
                                             <outlet property="authorLabel" destination="wvb-v5-V6d" id="BF4-pc-NG5"/>
                                             <outlet property="avaterImg" destination="o43-ZX-cb5" id="UXO-B0-MNy"/>
                                             <outlet property="voteLabel" destination="Pzq-gY-z1M" id="1mr-2c-f6D"/>
-                                            <segue destination="ir1-aV-Nwp" kind="show" identifier="viewAnwser" id="Aw0-uT-VDZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -304,7 +302,7 @@
         <!--Article Detail View Controller-->
         <scene sceneID="qme-lo-7KO">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="ir1-aV-Nwp" customClass="SYArticleDetailViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="articalStoryBoard" hidesBottomBarWhenPushed="YES" id="ir1-aV-Nwp" customClass="SYArticleDetailViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZD5-eJ-PTM"/>
                         <viewControllerLayoutGuide type="bottom" id="G7m-MX-HO9"/>
@@ -404,7 +402,4 @@
         <image name="Home" width="25" height="25"/>
         <image name="TopUsers" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Nzd-se-5Dy"/>
-    </inferredMetricsTieBreakers>
 </document>

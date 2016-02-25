@@ -73,22 +73,22 @@ class SYListDetailViewController: UIViewController {
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
-        let indexPath = tableView.indexPathForSelectedRow
-        let model:ListDetailModel = self.dataSource[(indexPath?.section)!]
-        let destinationController = segue.destinationViewController as! SYArticleDetailViewController
-        
-        if segue.identifier == "viewQuestion" {
-            destinationController.questionID = model.questionid!
-        } else {
-            destinationController.questionID = model.questionid!
-            destinationController.answerID = model.answerid!
-        }
-        
-        
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        
+//        let indexPath = tableView.indexPathForSelectedRow
+//        let model:ListDetailModel = self.dataSource[(indexPath?.section)!]
+//        let destinationController = segue.destinationViewController as! SYArticleDetailViewController
+//        
+//        if segue.identifier == "viewQuestion" {
+//            destinationController.questionID = model.questionid!
+//        } else {
+//            destinationController.questionID = model.questionid!
+//            destinationController.answerID = model.answerid!
+//        }
+//        
+//        
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -115,7 +115,25 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //取消cell长按效果
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        //根据section取model数据
+        let model:ListDetailModel = self.dataSource[(indexPath.section)]
+        
+        //获取storyboard的controller
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let articalDetail = storyBoard.instantiateViewControllerWithIdentifier("articalStoryBoard") as! SYArticleDetailViewController
+        
+        //根据section row 传相关值
+        if indexPath.row == 0 {
+             articalDetail.questionID = model.questionid!
+        } else {
+            articalDetail.questionID = model.questionid!
+            articalDetail.answerID = model.answerid!
+
+        }
+        self.navigationController?.pushViewController(articalDetail, animated: true)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -134,6 +152,7 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
             return cell
         }
     }
+    
     
 }
 
