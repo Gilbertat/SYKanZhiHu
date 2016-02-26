@@ -28,6 +28,7 @@ class SYArticleDetailViewController: UIViewController {
     }
     
     func settingWebView(url:String) {
+        
         self.detailWebView.scalesPageToFit = true
         let urls = NSURL(string: url)
         self.detailWebView.loadRequest(NSURLRequest(URL: urls!))

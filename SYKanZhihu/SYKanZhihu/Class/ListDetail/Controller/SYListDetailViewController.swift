@@ -66,8 +66,20 @@ class SYListDetailViewController: UIViewController {
         }
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let buttonPosition = sender?.convertPoint(CGPointZero, toView: self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(buttonPosition!)
+        let model:ListDetailModel = self.dataSource[(indexPath?.section)!]
+        let destinationController = segue.destinationViewController as! SYUserViewController
+        destinationController.userHash = model.authorhash!
+
+        
+    }
 
     override func viewWillAppear(animated: Bool) {
+        
         self.navigationController?.hidesBarsOnSwipe = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
@@ -112,11 +124,13 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         //根据section row 传相关值
         if indexPath.row == 0 {
              articalDetail.questionID = model.questionid!
-        } else {
+        }
+        else {
             articalDetail.questionID = model.questionid!
             articalDetail.answerID = model.answerid!
 
         }
+        
         self.navigationController?.pushViewController(articalDetail, animated: true)
     }
     
@@ -126,11 +140,14 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         
         if 0 == indexPath.row {
             let cell = tableView.dequeueReusableCellWithIdentifier("questionCell", forIndexPath: indexPath) as! SYListQuestionTableViewCell
+            
             cell.titleLabel.text = model.title
+            
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! SYListDetailTableViewCell
+            
                 cell.setAnswer(model)
             
             return cell
