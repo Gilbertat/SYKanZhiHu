@@ -12,7 +12,8 @@ class SYUserViewController: UIViewController {
     
 
     var userHash = "" //请求数据需要
-    var dataSource:Array<userModel> = Array()
+    var infoModel:userModel = userModel()
+    var extraModel:userModel = userModel()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +31,9 @@ class SYUserViewController: UIViewController {
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
 
             let infoDict:NSDictionary = data as! NSDictionary
-            
-        
-            
+            self.infoModel = userModel(info: infoDict)
+            self.extraModel = userModel(extra: infoDict["detail"]! as! NSDictionary)
+          
             }) { (error) -> Void in
                 
             print(error)

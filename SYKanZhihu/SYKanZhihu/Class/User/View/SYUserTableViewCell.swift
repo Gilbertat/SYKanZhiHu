@@ -14,6 +14,10 @@ class SYUserTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
+    func receiveUserModel(user:userModel) {
+        
+    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
