@@ -29,19 +29,9 @@ class SYUserViewController: UIViewController {
         SYHttp.get(url, params:nil, success: { (json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
 
-            let infoArray:NSArray = data as! NSArray
+            let infoDict:NSDictionary = data as! NSDictionary
             
-            let extraArray:NSArray = (data!["detail"] as? NSArray)!
-            
-            for info in infoArray {
-                let infoDetail:userModel = userModel(info: info as! NSDictionary)
-                self.dataSource.append(infoDetail)
-            }
-            
-            for extra in extraArray {
-                let extraDetail:userModel = userModel(extra: extra as! NSDictionary)
-                self.dataSource.append(extraDetail)
-            }
+        
             
             }) { (error) -> Void in
                 
