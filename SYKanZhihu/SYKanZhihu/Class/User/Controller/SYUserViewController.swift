@@ -12,12 +12,15 @@ class SYUserViewController: UIViewController {
     
 
     var userHash = "" //请求数据需要
-    var infoModel:userModel = userModel()
-    var extraModel:userModel = userModel()
+    var infoModel:userModel!
+    var extraModel:userModel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.infoModel = userModel()
+        self.extraModel = userModel()
+        
         tableView.estimatedRowHeight = 170
   
         requestData(userHash)
@@ -34,6 +37,10 @@ class SYUserViewController: UIViewController {
             self.infoModel = userModel(info: infoDict)
             self.extraModel = userModel(extra: infoDict["detail"]! as! NSDictionary)
           
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                self.tableView.reloadData()
+            }
+            
             }) { (error) -> Void in
                 
             print(error)
@@ -77,6 +84,9 @@ extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("userState", forIndexPath: indexPath) as! SYUserTableViewCell
+            
+            
+            cell.receiveUserModel(self.infoModel, userExtera: self.extraModel)
             
             return cell
         }

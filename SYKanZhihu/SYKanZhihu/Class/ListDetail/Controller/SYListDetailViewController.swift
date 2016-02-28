@@ -148,6 +148,7 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! SYListDetailTableViewCell
             
+          
                 cell.setAnswer(model)
             
             return cell

@@ -311,6 +311,16 @@
                                                 <constraint firstItem="nL5-fR-VLW" firstAttribute="top" secondItem="uqh-ll-Wtt" secondAttribute="top" constant="12" id="xvP-ta-nN8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="agreeLabel" destination="xL6-0w-sai" id="ux7-zm-Bjo"/>
+                                            <outlet property="answersNumberLabel" destination="bA2-ia-ESA" id="8P8-4c-tTL"/>
+                                            <outlet property="avaterImageView" destination="nL5-fR-VLW" id="iRf-3d-c1a"/>
+                                            <outlet property="descriptionLabel" destination="75G-yv-bxY" id="8Ji-sI-ZX9"/>
+                                            <outlet property="folowLabel" destination="qeU-fs-mUq" id="yZk-Qi-ANb"/>
+                                            <outlet property="folwerLabel" destination="hdI-bs-qyu" id="2Dq-Od-svW"/>
+                                            <outlet property="signatureScrollView" destination="lwg-FN-naw" id="hcj-PC-6Bt"/>
+                                            <outlet property="thanksLabel" destination="hGs-mA-vFH" id="ake-F0-0Xj"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="userTict" rowHeight="44" id="JK0-NZ-UZy" customClass="SYHighAnswerTableViewCell" customModule="SYKanZhihu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="284" width="600" height="44"/>
