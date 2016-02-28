@@ -18,12 +18,13 @@ class SYUserTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var agreeLabel: UILabel!
     @IBOutlet weak var thanksLabel: UILabel!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    func receiveUserModel(userInfo:userModel, userExtera:userModel) {
+    func receiveUserModel(userInfo:userModel) {
         
         self.avaterImageView.kf_setImageWithURL(NSURL(string: userInfo.avatar!)!, placeholderImage: UIImage(named: "DefaultAvatar"))
         let signLabel = UILabel()
@@ -37,11 +38,11 @@ class SYUserTableViewCell: UITableViewCell {
         self.signatureScrollView.addSubview(signLabel)
         self.signatureScrollView.contentSize = signLabel.bounds.size
         self.descriptionLabel.text = userInfo.description
-        self.answersNumberLabel.text = userExtera.answer
-        self.folowLabel.text = userExtera.followee
-        self.folwerLabel.text = userExtera.follower
-        self.agreeLabel.text = userExtera.agree
-        self.thanksLabel.text = userExtera.agree
+        self.answersNumberLabel.text = userInfo.answer
+        self.folowLabel.text = userInfo.followee
+        self.folwerLabel.text = userInfo.follower
+        self.agreeLabel.text = userInfo.agree
+        self.thanksLabel.text = userInfo.thanks
     
     }
 

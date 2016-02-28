@@ -30,26 +30,21 @@ class userModel {
     //感谢
     var thanks:String?
     
-    //加载用户基本信息
-    convenience init(info:NSDictionary) {
+    //加载用户基本信息，加载用户附加信息
+    convenience init(info:NSDictionary, extra:NSDictionary) {
         self.init()
         
         self.name = info["name"] as? String
         self.avatar = info["avatar"] as? String
         self.signature = info["signature"] as? String
         self.description = info["description"] as? String
-    }
-    
-    //加载用户附加信息
-    convenience init(extra:NSDictionary) {
-        self.init()
         
         self.answer = extra["answer"] as? String
         self.followee = extra["followee"] as? String
         self.follower = extra["follower"] as? String
         self.agree = extra["agree"] as? String
         self.thanks = extra["thanks"] as? String
-        
+
     }
     
 }

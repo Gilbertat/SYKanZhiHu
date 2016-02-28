@@ -13,15 +13,15 @@ class SYUserViewController: UIViewController {
 
     var userHash = "" //请求数据需要
     var infoModel:userModel!
-    var extraModel:userModel!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.infoModel = userModel()
-        self.extraModel = userModel()
         
         tableView.estimatedRowHeight = 170
+        tableView.rowHeight = UITableViewAutomaticDimension
+
   
         requestData(userHash)
         
@@ -34,8 +34,10 @@ class SYUserViewController: UIViewController {
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
 
             let infoDict:NSDictionary = data as! NSDictionary
-            self.infoModel = userModel(info: infoDict)
-            self.extraModel = userModel(extra: infoDict["detail"]! as! NSDictionary)
+            let extraModel:NSDictionary = infoDict["detail"] as! NSDictionary
+            
+            self.infoModel = userModel(info: infoDict, extra: extraModel)
+      
           
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 self.tableView.reloadData()
@@ -72,11 +74,11 @@ extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if 0 == indexPath.section {
-            return UITableViewAutomaticDimension
+        if 1 == indexPath.section {
+            return 44
         }
         else {
-            return 44
+            return UITableViewAutomaticDimension
         }
     }
     
@@ -84,9 +86,11 @@ extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("userState", forIndexPath: indexPath) as! SYUserTableViewCell
-            
-            
-            cell.receiveUserModel(self.infoModel, userExtera: self.extraModel)
+            if self.infoModel.name == nil {
+             
+            } else {
+                cell.receiveUserModel(self.infoModel)
+            }
             
             return cell
         }
