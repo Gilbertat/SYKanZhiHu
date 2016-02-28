@@ -21,7 +21,7 @@ class SYUserViewController: UIViewController {
         
         tableView.estimatedRowHeight = 170
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        tableView.userInteractionEnabled = true
   
         requestData(userHash)
         
@@ -80,6 +80,10 @@ extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
         else {
             return UITableViewAutomaticDimension
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

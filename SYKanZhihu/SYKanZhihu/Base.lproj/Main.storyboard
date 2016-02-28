@@ -164,6 +164,11 @@
                                                         <constraint firstAttribute="height" constant="65" id="LC2-E1-J22"/>
                                                         <constraint firstAttribute="width" constant="65" id="jbT-Bz-eBT"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="32.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwg-FN-naw">
                                                     <rect key="frame" x="88" y="12" width="504" height="21"/>

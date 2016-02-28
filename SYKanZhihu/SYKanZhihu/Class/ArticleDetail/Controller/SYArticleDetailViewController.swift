@@ -25,6 +25,7 @@ class SYArticleDetailViewController: UIViewController {
         
         self.settingWebView(url)
         
+        self.detailWebView.backgroundColor = UIColor.whiteColor()
     }
     
     func settingWebView(url:String) {

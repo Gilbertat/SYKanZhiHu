@@ -74,7 +74,7 @@ class SYListDetailViewController: UIViewController {
         let model:ListDetailModel = self.dataSource[(indexPath?.section)!]
         let destinationController = segue.destinationViewController as! SYUserViewController
         destinationController.userHash = model.authorhash!
-
+        destinationController.navigationItem.title = model.authorname
         
     }
 
@@ -120,7 +120,7 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         //获取storyboard的controller
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let articalDetail = storyBoard.instantiateViewControllerWithIdentifier("articalStoryBoard") as! SYArticleDetailViewController
-        
+        articalDetail.title = model.title
         //根据section row 传相关值
         if indexPath.row == 0 {
              articalDetail.questionID = model.questionid!
