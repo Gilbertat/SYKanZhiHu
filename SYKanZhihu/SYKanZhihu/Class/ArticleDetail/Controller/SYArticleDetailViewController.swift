@@ -17,11 +17,6 @@ class SYArticleDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if answerID != "" {
-            self.url = "\(ApiConfig.API_Aritical_Url)/\(questionID)/answer/\(answerID)"
-        } else {
-            self.url = "\(ApiConfig.API_Aritical_Url)/\(questionID)"
-        }
         
         self.settingWebView(url)
         

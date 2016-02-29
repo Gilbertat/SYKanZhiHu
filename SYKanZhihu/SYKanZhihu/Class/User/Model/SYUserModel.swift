@@ -30,6 +30,8 @@ class userModel {
     //感谢
     var thanks:String?
     
+    
+    
     //加载用户基本信息，加载用户附加信息
     convenience init(info:NSDictionary, extra:NSDictionary) {
         self.init()

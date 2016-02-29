@@ -18,6 +18,12 @@ class ApiConfig {
     static let API_Aritical_Url:String = "http://www.zhihu.com/question"
     //请求用户个人数据
     static let API_User_Url:String = "http://api.kanzhihu.com/userdetail2/"
+    //知乎官网
+    static let API_ZhiHu_Url:String = "http://www.zhihu.com"
+    //知乎专栏
+    static let API_ZhuanLan_Url:String = "http://zhuanlan.zhihu.com"
+    //知乎个人页
+    static let API_ZhPersonal_Url:String = "http://www.zhihu.com/people"
     
 }
     

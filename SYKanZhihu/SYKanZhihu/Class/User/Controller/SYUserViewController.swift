@@ -13,7 +13,9 @@ class SYUserViewController: UIViewController {
 
     var userHash = "" //请求数据需要
     var infoModel:userModel!
+    var dataSource:Array<ConsentModel> = Array()
     @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +37,11 @@ class SYUserViewController: UIViewController {
 
             let infoDict:NSDictionary = data as! NSDictionary
             let extraModel:NSDictionary = infoDict["detail"] as! NSDictionary
+            let consentArray:NSArray = infoDict["topanswers"] as! NSArray
+            for dict in consentArray {
+                let consentModel:ConsentModel = ConsentModel(dict: dict as! NSDictionary)
+                self.dataSource.append(consentModel)
+            }
             
             self.infoModel = userModel(info: infoDict, extra: extraModel)
       
@@ -48,6 +55,21 @@ class SYUserViewController: UIViewController {
             print(error)
         }
         
+    }
+    //跳转到用户主页
+    @IBAction func homePage(sender: AnyObject) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let articalDetail = storyBoard.instantiateViewControllerWithIdentifier("articalStoryBoard") as! SYArticleDetailViewController
+        articalDetail.navigationItem.title = self.infoModel.name!
+        articalDetail.url = "\(ApiConfig.API_ZhPersonal_Url)/\(self.userHash)"
+        self.navigationController?.pushViewController(articalDetail, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "consent" {
+            let destinationViewController = segue.destinationViewController as! SYConsentViewController
+            destinationViewController.dataSource = self.dataSource
+        }
     }
     
     override func didReceiveMemoryWarning() {
