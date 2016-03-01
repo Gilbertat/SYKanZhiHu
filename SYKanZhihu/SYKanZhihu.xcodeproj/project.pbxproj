@@ -33,6 +33,7 @@
 		97FCFAC61C83FF9C00AD78FA /* SYConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAC51C83FF9C00AD78FA /* SYConsentViewController.swift */; };
 		97FCFAC81C84029A00AD78FA /* SYConsentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAC71C84029A00AD78FA /* SYConsentTableViewCell.swift */; };
 		97FCFACA1C8403C200AD78FA /* SYConsentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAC91C8403C200AD78FA /* SYConsentModel.swift */; };
+		97FCFACD1C85472300AD78FA /* SYTopUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFACC1C85472300AD78FA /* SYTopUserTableViewCell.swift */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		97FCFAC51C83FF9C00AD78FA /* SYConsentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYConsentViewController.swift; sourceTree = "<group>"; };
 		97FCFAC71C84029A00AD78FA /* SYConsentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYConsentTableViewCell.swift; sourceTree = "<group>"; };
 		97FCFAC91C8403C200AD78FA /* SYConsentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYConsentModel.swift; sourceTree = "<group>"; };
+		97FCFACC1C85472300AD78FA /* SYTopUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYTopUserTableViewCell.swift; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 		9795DF8D1C7460F800F4307F /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				97FCFACB1C85470F00AD78FA /* View */,
 				9795DF8E1C7460F800F4307F /* Controller */,
 				9795DF8F1C7460F800F4307F /* Model */,
 			);
@@ -307,6 +310,14 @@
 				97FCFAC11C7F16B400AD78FA /* SYUserTableViewCell.swift */,
 				97FCFAC31C7FF96400AD78FA /* SYHighAnswerTableViewCell.swift */,
 				97FCFAC71C84029A00AD78FA /* SYConsentTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		97FCFACB1C85470F00AD78FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97FCFACC1C85472300AD78FA /* SYTopUserTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +471,7 @@
 				9795DF961C74619A00F4307F /* SYRankingModel.swift in Sources */,
 				97FB57D21C7AAEBA00CF06BA /* SYListDetailModel.swift in Sources */,
 				9795DF901C7460F800F4307F /* SYHomeViewController.swift in Sources */,
+				97FCFACD1C85472300AD78FA /* SYTopUserTableViewCell.swift in Sources */,
 				9795DF9D1C746A4500F4307F /* SYHttpManager.swift in Sources */,
 				9795DF771C7456E600F4307F /* AppDelegate.swift in Sources */,
 				97FCFAC61C83FF9C00AD78FA /* SYConsentViewController.swift in Sources */,
