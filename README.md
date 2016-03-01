@@ -4,7 +4,7 @@ iOS KanZhiHu App(Swift versions) (http://www.kanzhihu.com/)
 clone is,open the xcworkspace file, if the file is a blank,please use terminal and 
 cd to the project directory execute pod update command
 ## Status
-The first version is finished
+3-1-2016 The first version is finished
 ## Open source library used
 - [Alamofire][1]
 - [Kingfisher][2]
