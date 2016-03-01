@@ -8,15 +8,16 @@ The first version is finished
 ## Open source library used
 - [Alamofire][1]
 - [Kingfisher][2]
-## Acknowledgements
-- [知乎网](11)
-- [看知乎](12)
+
+##  Acknowledgements
+- [知乎网][3]
+- [看知乎][4]
 - Open source library Author
 
 
 [1]:https://github.com/Alamofire/Alamofire
 [2]:https://github.com/onevcat/Kingfisher
-[11]:https://www.zhihu.com/
-[12]:http://www.kanzhihu.com/
+[3]:https://www.zhihu.com/
+[4]:http://www.kanzhihu.com/
 
 
