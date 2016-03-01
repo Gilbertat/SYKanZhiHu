@@ -10,17 +10,6 @@ import Foundation
 import UIKit
 
 
-class universal {
-    static func maskToCorner(view:UIView, corner:UIRectCorner, cornerRedius size:CGSize) {
-        let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corner, cornerRadii: size)
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = view.bounds
-        maskLayer.path = maskPath.CGPath
-        view.layer.mask = maskLayer
-    }
-}
-
-
 extension UIView {
     @IBInspectable var cornerRadius : CGFloat {
     get {
@@ -30,8 +19,5 @@ extension UIView {
         layer.cornerRadius = newValue
         layer.masksToBounds = (newValue > 0)
     }
-    
-    
   }
-    
 }

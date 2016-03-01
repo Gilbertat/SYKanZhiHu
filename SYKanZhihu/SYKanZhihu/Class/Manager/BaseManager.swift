@@ -24,6 +24,8 @@ class ApiConfig {
     static let API_ZhuanLan_Url:String = "http://zhuanlan.zhihu.com"
     //知乎个人页
     static let API_ZhPersonal_Url:String = "http://www.zhihu.com/people"
+    //排名数据
+    static let API_ZhTopUsers_Url:String = "http://api.kanzhihu.com/topuser/"
     
 }
     

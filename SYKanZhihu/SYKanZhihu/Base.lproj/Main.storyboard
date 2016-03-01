@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topUser" id="vHh-gQ-CKD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topUser" id="vHh-gQ-CKD" customClass="SYTopUserTableViewCell" customModule="SYKanZhihu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vHh-gQ-CKD" id="FhZ-td-ebP">
@@ -79,8 +79,19 @@
                                                 <constraint firstItem="8el-S8-kdN" firstAttribute="leading" secondItem="FhZ-td-ebP" secondAttribute="leading" id="xSg-Gd-n8v"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="SignatureLabel" destination="5us-rJ-IGo" id="CAI-S5-SMR"/>
+                                            <outlet property="avatarImageView" destination="WiG-sr-Npx" id="73O-CL-TGD"/>
+                                            <outlet property="indexLabel" destination="8el-S8-kdN" id="HJC-NI-9mQ"/>
+                                            <outlet property="nameLabel" destination="70U-0W-Bvo" id="Dem-d8-cvv"/>
+                                            <outlet property="valueLabel" destination="YG9-Ul-fpg" id="Pzq-fG-saq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JwV-cZ-VYW" id="4AH-M1-A60"/>
+                                    <outlet property="delegate" destination="JwV-cZ-VYW" id="Smx-Xv-gkO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,6 +113,10 @@
                             </segments>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="QDl-vF-jOl" id="i94-Dl-Tcf"/>
+                        <outlet property="tableView" destination="jTf-io-vIC" id="cop-8a-1fE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RoX-Sg-9FQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
