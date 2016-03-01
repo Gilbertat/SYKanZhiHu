@@ -18,6 +18,8 @@ extension UIView {
     set {
         layer.cornerRadius = newValue
         layer.masksToBounds = (newValue > 0)
+        layer.shouldRasterize = true
+        layer.rasterizationScale = layer.contentsScale
     }
   }
 }

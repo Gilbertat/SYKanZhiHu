@@ -58,6 +58,7 @@ class SYListDetailTableViewCell: UITableViewCell {
         let maskLayer = CAShapeLayer()
         maskLayer.frame = self.bounds
         maskLayer.path = maskPath.CGPath
+        maskLayer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
         self.layer.mask = maskLayer
         
         
@@ -65,6 +66,7 @@ class SYListDetailTableViewCell: UITableViewCell {
         let borderLayer = CAShapeLayer()
         borderLayer.frame = self.bounds
         borderLayer.path = maskPath.CGPath
+        borderLayer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
         borderLayer.lineWidth = 0.5
         borderLayer.strokeColor = UIColor.lightGrayColor().CGColor
         borderLayer.fillColor = UIColor.clearColor().CGColor
