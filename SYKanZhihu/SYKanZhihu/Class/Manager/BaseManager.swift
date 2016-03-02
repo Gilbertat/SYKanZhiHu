@@ -15,15 +15,15 @@ class ApiConfig {
     //聚合数据下文章列表API
     static let API_List_Url:String = "http://api.kanzhihu.com/getpostanswers"
     //文章列表下详细文章API
-    static let API_Aritical_Url:String = "http://www.zhihu.com/question"
+    static let API_Aritical_Url:String = "https://www.zhihu.com/question"
     //请求用户个人数据
     static let API_User_Url:String = "http://api.kanzhihu.com/userdetail2/"
     //知乎官网
-    static let API_ZhiHu_Url:String = "http://www.zhihu.com"
+    static let API_ZhiHu_Url:String = "https://www.zhihu.com"
     //知乎专栏
-    static let API_ZhuanLan_Url:String = "http://zhuanlan.zhihu.com"
+    static let API_ZhuanLan_Url:String = "https://zhuanlan.zhihu.com"
     //知乎个人页
-    static let API_ZhPersonal_Url:String = "http://www.zhihu.com/people"
+    static let API_ZhPersonal_Url:String = "https://www.zhihu.com/people"
     //排名数据
     static let API_ZhTopUsers_Url:String = "http://api.kanzhihu.com/topuser/"
     

@@ -21,6 +21,8 @@ class SYArticleDetailViewController: UIViewController {
         self.settingWebView(url)
         
         self.detailWebView.backgroundColor = UIColor.whiteColor()
+        self.detailWebView.dataDetectorTypes = UIDataDetectorTypes.PhoneNumber
+        
     }
     
     func settingWebView(url:String) {
@@ -30,6 +32,21 @@ class SYArticleDetailViewController: UIViewController {
         self.detailWebView.loadRequest(NSURLRequest(URL: urls!))
     }
     
+    @IBAction func openAnotherApp(sender: AnyObject) {
+        var paramStr = "zhihu://com.zhihu.com/"
+        if questionID != "" && answerID != "" {
+            paramStr = paramStr + "question/\(questionID)/answer/\(answerID)"
+        } else {
+            paramStr = paramStr + "question/\(questionID)"
+        }
+        print(paramStr)
+        let url = NSURL(string: paramStr)
+        let isExit:Bool = UIApplication.sharedApplication().canOpenURL(NSURL(string: paramStr)!)
+        if isExit {
+            UIApplication.sharedApplication().openURL(url!)
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

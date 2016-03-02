@@ -124,9 +124,12 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         //根据section row 传相关值
         if indexPath.row == 0 {
              articalDetail.url = "\(ApiConfig.API_Aritical_Url)/\(model.questionid!)"
+             articalDetail.questionID = model.questionid!
         }
         else {
             articalDetail.url = "\(ApiConfig.API_Aritical_Url)/\(model.questionid!)/answer/\(model.answerid!)"
+            articalDetail.questionID = model.questionid!
+            articalDetail.answerID = model.answerid!
         }
                 
         self.navigationController?.pushViewController(articalDetail, animated: true)
