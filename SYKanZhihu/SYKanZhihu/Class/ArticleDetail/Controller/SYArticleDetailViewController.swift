@@ -26,20 +26,18 @@ class SYArticleDetailViewController: UIViewController {
     }
     
     func settingWebView(url:String) {
-        
         self.detailWebView.scalesPageToFit = true
         let urls = NSURL(string: url)
         self.detailWebView.loadRequest(NSURLRequest(URL: urls!))
     }
     
     @IBAction func openAnotherApp(sender: AnyObject) {
-        var paramStr = "zhihu://com.zhihu.com/"
+        var paramStr = "zhihu://"
         if questionID != "" && answerID != "" {
-            paramStr = paramStr + "question/\(questionID)/answer/\(answerID)"
+            paramStr = paramStr + "answers/\(answerID)"
         } else {
-            paramStr = paramStr + "question/\(questionID)"
+            paramStr = paramStr + "questions/\(questionID)/"
         }
-        print(paramStr)
         let url = NSURL(string: paramStr)
         let isExit:Bool = UIApplication.sharedApplication().canOpenURL(NSURL(string: paramStr)!)
         if isExit {
