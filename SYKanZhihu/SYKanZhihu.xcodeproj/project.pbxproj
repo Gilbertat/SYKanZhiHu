@@ -36,6 +36,7 @@
 		97FCFAD01C89274C00AD78FA /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FCFACF1C89274C00AD78FA /* arrow@2x.png */; };
 		97FCFAD21C8928BA00AD78FA /* RefreshBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD11C8928BA00AD78FA /* RefreshBase.swift */; };
 		97FCFAD41C8928D600AD78FA /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD31C8928D600AD78FA /* RefreshConst.swift */; };
+		97FCFAD61C89569F00AD78FA /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD51C89569F00AD78FA /* RefreshFooterView.swift */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		97FCFACF1C89274C00AD78FA /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		97FCFAD11C8928BA00AD78FA /* RefreshBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBase.swift; sourceTree = "<group>"; };
 		97FCFAD31C8928D600AD78FA /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
+		97FCFAD51C89569F00AD78FA /* RefreshFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshFooterView.swift; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +333,7 @@
 			children = (
 				97FCFACF1C89274C00AD78FA /* arrow@2x.png */,
 				97FCFAD11C8928BA00AD78FA /* RefreshBase.swift */,
+				97FCFAD51C89569F00AD78FA /* RefreshFooterView.swift */,
 				97FCFAD31C8928D600AD78FA /* RefreshConst.swift */,
 			);
 			path = Refresh;
@@ -477,6 +480,7 @@
 				97FCFAD21C8928BA00AD78FA /* RefreshBase.swift in Sources */,
 				97FCFAD41C8928D600AD78FA /* RefreshConst.swift in Sources */,
 				97FCFAC81C84029A00AD78FA /* SYConsentTableViewCell.swift in Sources */,
+				97FCFAD61C89569F00AD78FA /* RefreshFooterView.swift in Sources */,
 				971957831C760B360069C7B4 /* SYHomeTableViewCell.swift in Sources */,
 				97FCFACA1C8403C200AD78FA /* SYConsentModel.swift in Sources */,
 				97FB57D41C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift in Sources */,
