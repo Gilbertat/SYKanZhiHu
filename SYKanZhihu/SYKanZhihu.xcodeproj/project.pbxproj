@@ -37,6 +37,8 @@
 		97FCFAD21C8928BA00AD78FA /* RefreshBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD11C8928BA00AD78FA /* RefreshBase.swift */; };
 		97FCFAD41C8928D600AD78FA /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD31C8928D600AD78FA /* RefreshConst.swift */; };
 		97FCFAD61C89569F00AD78FA /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD51C89569F00AD78FA /* RefreshFooterView.swift */; };
+		97FCFAD81C8AD06600AD78FA /* RefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD71C8AD06600AD78FA /* RefreshHeaderView.swift */; };
+		97FCFADA1C8AD97900AD78FA /* UIScrollview+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCFAD91C8AD97900AD78FA /* UIScrollview+Refresh.swift */; };
 		E693E3F9B2F0103737595E3A /* Pods_SYKanZhihu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		97FCFAD11C8928BA00AD78FA /* RefreshBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBase.swift; sourceTree = "<group>"; };
 		97FCFAD31C8928D600AD78FA /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
 		97FCFAD51C89569F00AD78FA /* RefreshFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshFooterView.swift; sourceTree = "<group>"; };
+		97FCFAD71C8AD06600AD78FA /* RefreshHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeaderView.swift; sourceTree = "<group>"; };
+		97FCFAD91C8AD97900AD78FA /* UIScrollview+Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollview+Refresh.swift"; sourceTree = "<group>"; };
 		9E1EC9E76E1B45621F20FCA3 /* Pods-SYKanZhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -335,6 +339,8 @@
 				97FCFAD11C8928BA00AD78FA /* RefreshBase.swift */,
 				97FCFAD51C89569F00AD78FA /* RefreshFooterView.swift */,
 				97FCFAD31C8928D600AD78FA /* RefreshConst.swift */,
+				97FCFAD71C8AD06600AD78FA /* RefreshHeaderView.swift */,
+				97FCFAD91C8AD97900AD78FA /* UIScrollview+Refresh.swift */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 				97FCFAC21C7F16B400AD78FA /* SYUserTableViewCell.swift in Sources */,
 				97FB57D61C7B41B200CF06BA /* SYListQuestionTableViewCell.swift in Sources */,
 				9795DF941C74617800F4307F /* SYRankingViewController.swift in Sources */,
+				97FCFAD81C8AD06600AD78FA /* RefreshHeaderView.swift in Sources */,
 				9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */,
 				97FCFAD21C8928BA00AD78FA /* RefreshBase.swift in Sources */,
 				97FCFAD41C8928D600AD78FA /* RefreshConst.swift in Sources */,
@@ -497,6 +504,7 @@
 				97FCFAC61C83FF9C00AD78FA /* SYConsentViewController.swift in Sources */,
 				97FCFABE1C7F168500AD78FA /* SYUserViewController.swift in Sources */,
 				97FCFAC41C7FF96400AD78FA /* SYHighAnswerTableViewCell.swift in Sources */,
+				97FCFADA1C8AD97900AD78FA /* UIScrollview+Refresh.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
