@@ -58,11 +58,10 @@ class SYUserViewController: UIViewController {
     }
     //跳转到用户主页
     @IBAction func homePage(sender: AnyObject) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let articalDetail = storyBoard.instantiateViewControllerWithIdentifier("articalStoryBoard") as! SYArticleDetailViewController
-        articalDetail.navigationItem.title = self.infoModel.name!
-        articalDetail.url = "\(ApiConfig.API_ZhPersonal_Url)/\(self.userHash)"
-        self.navigationController?.pushViewController(articalDetail, animated: true)
+        
+        let url = "\(ApiConfig.API_ZhPersonal_Url)/\(self.userHash)"
+        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+      
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -11,7 +11,6 @@ import UIKit
 class SYConsentViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let articleDetail = SYArticleDetailViewController()
     var dataSource:Array<ConsentModel> = Array()
     
     override func viewDidLoad() {
@@ -24,23 +23,6 @@ class SYConsentViewController: UIViewController {
         self.title = "高票答案"
         
         tableView.reloadData()
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "consentDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let model:ConsentModel = self.dataSource[indexPath.row]
-                let destinationViewController = segue.destinationViewController as! SYArticleDetailViewController
-                var url = ""
-                if model.ispost == "0" {
-                    url = ApiConfig.API_ZhiHu_Url + model.link!
-                } else {
-                    url = ApiConfig.API_ZhuanLan_Url + model.link!
-                }
-                destinationViewController.navigationItem.title = model.title!
-                destinationViewController.url = url
-            }
-        }
     }
     
       override func didReceiveMemoryWarning() {
@@ -59,7 +41,17 @@ extension SYConsentViewController:UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let model:ConsentModel = self.dataSource[indexPath.row]
+        var url = ""
+        if model.ispost == "0" {
+            url = ApiConfig.API_ZhiHu_Url + model.link!
+        } else {
+            url = ApiConfig.API_ZhuanLan_Url + model.link!
+        }
+        
+        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

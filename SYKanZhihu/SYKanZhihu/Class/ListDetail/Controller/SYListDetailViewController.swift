@@ -117,22 +117,15 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         //根据section取model数据
         let model:ListDetailModel = self.dataSource[(indexPath.section)]
         
-        //获取storyboard的controller
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let articalDetail = storyBoard.instantiateViewControllerWithIdentifier("articalStoryBoard") as! SYArticleDetailViewController
-        articalDetail.title = model.title
-        //根据section row 传相关值
-        if indexPath.row == 0 {
-             articalDetail.url = "\(ApiConfig.API_Aritical_Url)/\(model.questionid!)"
-             articalDetail.questionID = model.questionid!
+        //根据section row 获取值
+        
+        var string = ApiConfig.API_Aritical_Url + model.questionid!
+        if indexPath.row == 1 {
+            string = ApiConfig.API_Aritical_Url + model.questionid! + "/answer/" + model.answerid!
         }
-        else {
-            articalDetail.url = "\(ApiConfig.API_Aritical_Url)/\(model.questionid!)/answer/\(model.answerid!)"
-            articalDetail.questionID = model.questionid!
-            articalDetail.answerID = model.answerid!
-        }
-                
-        self.navigationController?.pushViewController(articalDetail, animated: true)
+        UIApplication.sharedApplication().openURL(NSURL(string: string)!)
+        
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
