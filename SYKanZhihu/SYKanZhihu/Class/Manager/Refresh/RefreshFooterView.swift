@@ -105,17 +105,62 @@ class RefreshFooterView: RefreshBaseView {
                     UIView.animateWithDuration(RefreshAnimationDuration, animations: { () -> Void in
                         self.scrollView.contentInset.bottom = self.scrollviewOriginalInset.bottom
                     })
-                } else {
+                }
+                else {
                     UIView.animateWithDuration(RefreshAnimationDuration, animations: { () -> Void in
                         self.arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
                     })
                 }
+                let deltaH = self.heightForContentBreakView()
+                let currentCount = self.totalDataCountInScollView()
+                if RefreshState.Refreshing == oldState && deltaH > 0 && currentCount != self.lastRefreshCount {
+                    var offset = self.scrollView.contentOffset
+                    offset.y = self.scrollView.contentOffset.y
+                    self.scrollView.contentOffset = offset
+                }
+            case .Pulling:
+                self.statusLabel.text = RefreshFooterToRefresh
+                UIView.animateWithDuration(RefreshAnimationDuration, animations: { () -> Void in
+                    self.arrowImageView.transform = CGAffineTransformIdentity
+                })
+            case .Refreshing:
+                self.statusLabel.text = RefreshFooterRefreshing
+                self.lastRefreshCount = self.totalDataCountInScollView()
+                UIView.animateWithDuration(RefreshAnimationDuration, animations: { () -> Void in
+                    var bottom = self.frame.size.height + self.scrollviewOriginalInset.bottom
+                    let deltaH = self.heightForContentBreakView()
+                    if deltaH < 0 {
+                        bottom = bottom - deltaH
+                    }
+                    var inset = self.scrollView.contentInset
+                    inset.bottom = bottom
+                    self.scrollView.contentInset = inset
+                })
+            case .WillRefreshing:
+                break
             }
         }
     }
     
     
-    
+    func totalDataCountInScollView() -> Int {
+        var totalCount = 0
+        if self.scrollView is UITableView {
+            let tableView = self.scrollView as! UITableView
+            
+            for var i = 0; i < tableView.numberOfSections; i++ {
+                totalCount = totalCount + tableView.numberOfRowsInSection(i)
+            }
+        }
+        else if self.scrollView is UICollectionView {
+            let collectionView = self.scrollView as! UICollectionView
+            
+            for var i = 0; i < collectionView.numberOfSections(); i++ {
+                totalCount = totalCount + collectionView.numberOfItemsInSection(i)
+            }
+        }
+        return totalCount
+    }
     
     
     
