@@ -17,7 +17,16 @@ class SYListDetailTableViewCell: UITableViewCell {
     
     func setAnswer(model:ListDetailModel) {
         
-        self.avaterImg.kf_setImageWithURL(NSURL(string: model.avatar!)!)
+        self.avaterImg.kf_setImageWithURL(NSURL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+            
+            UIGraphicsBeginImageContextWithOptions(self.avaterImg.bounds.size, false, UIScreen.mainScreen().scale)
+            UIBezierPath(roundedRect: self.avaterImg.bounds, cornerRadius: 12.5).addClip()
+            
+            image?.drawInRect(self.avaterImg.bounds)
+            self.avaterImg.image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+        }
         
         let vote = Double(model.vote!)
         var stringVote = ""
@@ -53,19 +62,11 @@ class SYListDetailTableViewCell: UITableViewCell {
     }
     
     override func drawRect(rect: CGRect) {
-        //切左下右下圆角
-        let maskPath = UIBezierPath(roundedRect:self.bounds, byRoundingCorners:[.BottomLeft,.BottomRight], cornerRadii: CGSizeMake(5.0, 5.0))
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = self.bounds
-        maskLayer.path = maskPath.CGPath
-        maskLayer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
-        self.layer.mask = maskLayer
         
-        
-        //添加border
+        //切左下右下圆角 添加border
         let borderLayer = CAShapeLayer()
         borderLayer.frame = self.bounds
-        borderLayer.path = maskPath.CGPath
+        borderLayer.path = UIBezierPath(roundedRect:self.bounds, byRoundingCorners:[.BottomLeft,.BottomRight], cornerRadii: CGSizeMake(5.0, 5.0)).CGPath
         borderLayer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
         borderLayer.lineWidth = 0.5
         borderLayer.strokeColor = UIColor.lightGrayColor().CGColor

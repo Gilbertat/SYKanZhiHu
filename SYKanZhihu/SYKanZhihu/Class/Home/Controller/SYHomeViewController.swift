@@ -14,6 +14,7 @@ class SYHomeViewController: UIViewController {
     var dataSource : Array<HomeModel> = Array()
     @IBOutlet weak var tableView: UITableView!
     var page = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +67,6 @@ class SYHomeViewController: UIViewController {
                 destinationController.requestState = model.name!
                 destinationController.avaterUrl = model.pic!
                 destinationController.catagoryName = model.categoryName![model.name!]!
-                
             }
         }
     }

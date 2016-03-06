@@ -24,17 +24,10 @@ class SYListQuestionTableViewCell: UITableViewCell {
         }
     }
     override func drawRect(rect: CGRect) {
-        //切左上右上圆角
-        let maskPath = UIBezierPath(roundedRect:self.bounds, byRoundingCorners: [.TopLeft,.TopRight], cornerRadii: CGSizeMake(5.0, 5.0))
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = self.bounds
-        maskLayer.path = maskPath.CGPath
-        self.layer.mask = maskLayer
-        
-        //添加border
+        //切左上右上圆角 添加border
         let borderLayer = CAShapeLayer()
         borderLayer.frame = self.bounds
-        borderLayer.path = maskPath.CGPath
+        borderLayer.path = UIBezierPath(roundedRect:self.bounds, byRoundingCorners: [.TopLeft,.TopRight], cornerRadii: CGSizeMake(5.0, 5.0)).CGPath
         borderLayer.lineWidth = 0.5
         borderLayer.strokeColor = UIColor.lightGrayColor().CGColor
         borderLayer.fillColor = UIColor.clearColor().CGColor

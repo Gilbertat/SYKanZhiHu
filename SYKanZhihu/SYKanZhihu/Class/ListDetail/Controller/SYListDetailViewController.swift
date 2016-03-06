@@ -118,11 +118,12 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         let model:ListDetailModel = self.dataSource[(indexPath.section)]
         
         //根据section row 获取值
-        
         var string = ApiConfig.API_Aritical_Url + model.questionid!
+        
         if indexPath.row == 1 {
             string = ApiConfig.API_Aritical_Url + model.questionid! + "/answer/" + model.answerid!
         }
+        
         UIApplication.sharedApplication().openURL(NSURL(string: string)!)
         
         
