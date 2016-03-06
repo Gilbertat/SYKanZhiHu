@@ -93,6 +93,7 @@ extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let model:topUserModel = self.dataSource[indexPath.row]
         let other = self.otherArray[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("topUser", forIndexPath: indexPath) as! SYTopUserTableViewCell
@@ -101,7 +102,8 @@ extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
         cell.indexLabel.text = "\(indexPath.row + 1)"
         cell.SignatureLabel.text = model.signature
         
-         var string = other["follower"]!
+        var string = other["follower"]!
+        
         if 1 == self.segmentedControl.selectedSegmentIndex {
             cell.valueLabel.text = "粉丝数:\(string!)"
         } else {
