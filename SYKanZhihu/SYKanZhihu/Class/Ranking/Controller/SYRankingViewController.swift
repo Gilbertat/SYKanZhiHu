@@ -97,7 +97,16 @@ extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
         let model:topUserModel = self.dataSource[indexPath.row]
         let other = self.otherArray[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("topUser", forIndexPath: indexPath) as! SYTopUserTableViewCell
-        cell.avatarImageView.kf_setImageWithURL(NSURL(string: model.avatar!)!, placeholderImage:UIImage(named: "DefaultAvatar"))
+        cell.avatarImageView.kf_setImageWithURL(NSURL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+            
+            UIGraphicsBeginImageContextWithOptions(cell.avatarImageView.bounds.size, false, UIScreen.mainScreen().scale)
+            UIBezierPath(roundedRect: cell.avatarImageView.bounds, cornerRadius: 30).addClip()
+            
+            image?.drawInRect(cell.avatarImageView.bounds)
+            cell.avatarImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+        }
         cell.nameLabel.text = model.name
         cell.indexLabel.text = "\(indexPath.row + 1)"
         cell.SignatureLabel.text = model.signature

@@ -44,11 +44,6 @@
                                                         <constraint firstAttribute="height" constant="60" id="aTv-Cw-gzN"/>
                                                         <constraint firstAttribute="width" constant="60" id="l0j-kZ-Pkp"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="30"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="j4S-3Y-pWh">
                                                     <rect key="frame" x="106" y="12" width="476" height="59"/>
@@ -824,6 +819,6 @@
         <image name="TopUsers" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ncr-09-EKp"/>
+        <segue reference="cdI-rs-g2B"/>
     </inferredMetricsTieBreakers>
 </document>
