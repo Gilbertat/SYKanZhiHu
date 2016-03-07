@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-SYKanZhihu/AMScrollingNavbar.framework"
   install_framework "Pods-SYKanZhihu/Alamofire.framework"
   install_framework "Pods-SYKanZhihu/Kingfisher.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-SYKanZhihu/AMScrollingNavbar.framework"
   install_framework "Pods-SYKanZhihu/Alamofire.framework"
   install_framework "Pods-SYKanZhihu/Kingfisher.framework"
 fi

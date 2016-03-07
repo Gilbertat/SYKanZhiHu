@@ -144,10 +144,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="u69-2I-dB3" customClass="SYHomeTableViewCell" customModule="SYKanZhihu" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="68.5"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u69-2I-dB3" id="VAy-1u-1I2">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-Sr-OV2">
@@ -775,8 +775,8 @@
         <!--精华-->
         <scene sceneID="ofb-Um-wJ6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YeA-pR-4oY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="精华" image="Home" id="a2V-fq-wy2"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YeA-pR-4oY" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="精华" image="Feed_Normal" selectedImage="Feed_Highlight" id="a2V-fq-wy2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zhs-ac-nBO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -794,8 +794,8 @@
         <!--用户排行-->
         <scene sceneID="HjJ-hI-uEV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hNL-V1-1fF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="用户排行" image="TopUsers" id="3JV-Cl-e3m"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hNL-V1-1fF" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="用户排行" image="Find_Normal" selectedImage="Find_Highlight" id="3JV-Cl-e3m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tsZ-IF-maY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -814,9 +814,11 @@
     <resources>
         <image name="Agree" width="33" height="33"/>
         <image name="DefaultAvatar" width="66" height="66"/>
-        <image name="Home" width="25" height="25"/>
+        <image name="Feed_Highlight" width="29" height="29"/>
+        <image name="Feed_Normal" width="29" height="29"/>
+        <image name="Find_Highlight" width="29" height="29"/>
+        <image name="Find_Normal" width="29" height="29"/>
         <image name="Thanks" width="33" height="33"/>
-        <image name="TopUsers" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cdI-rs-g2B"/>

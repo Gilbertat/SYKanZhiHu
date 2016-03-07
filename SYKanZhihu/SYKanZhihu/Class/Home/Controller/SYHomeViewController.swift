@@ -8,6 +8,7 @@
 
 import UIKit
 
+import AMScrollingNavbar
 
 class SYHomeViewController: UIViewController {
 
@@ -25,6 +26,7 @@ class SYHomeViewController: UIViewController {
         httpRequest()
     }
     
+    //MARK: -请求网络数据
     func httpRequest() {
     
         let urlString = "\(ApiConfig.API_Url)/\(self.page)"
@@ -51,12 +53,16 @@ class SYHomeViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.title = "精华"
-        navigationController?.hidesBarsOnSwipe = true
+    
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(tableView, delay: 50.0)
+        }
      
     }
     
-    //segue传值,用于聚合下列表请求数据
+    //MARK: -segue传值,用于聚合下列表请求数据
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "viewList" {
             
@@ -68,6 +74,23 @@ class SYHomeViewController: UIViewController {
                 destinationController.avaterUrl = model.pic!
                 destinationController.catagoryName = model.categoryName![model.name!]!
             }
+        }
+    }
+    
+    //MARK: -点击status bar 显示 navigationbar
+     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
+        }
+        return true
+    }
+    
+    //MARK: -跳转到二级页面显示navigationBar
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.showNavbar(animated: true)
         }
     }
 
@@ -82,6 +105,7 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+    
         return dataSource.count
         
     }
