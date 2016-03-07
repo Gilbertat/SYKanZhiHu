@@ -19,6 +19,9 @@ class SYConsentViewController: UIViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        let view = UIView()
+        self.tableView.tableFooterView = view
+        
         
         self.title = "高票答案"
         
