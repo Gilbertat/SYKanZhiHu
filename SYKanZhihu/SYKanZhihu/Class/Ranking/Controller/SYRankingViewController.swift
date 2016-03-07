@@ -98,7 +98,6 @@ extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
         let other = self.otherArray[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("topUser", forIndexPath: indexPath) as! SYTopUserTableViewCell
         cell.avatarImageView.kf_setImageWithURL(NSURL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
-            
             UIGraphicsBeginImageContextWithOptions(cell.avatarImageView.bounds.size, false, UIScreen.mainScreen().scale)
             UIBezierPath(roundedRect: cell.avatarImageView.bounds, cornerRadius: 30).addClip()
             

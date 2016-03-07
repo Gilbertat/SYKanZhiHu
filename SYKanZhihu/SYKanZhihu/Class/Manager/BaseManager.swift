@@ -21,7 +21,7 @@ class ApiConfig {
     //知乎官网
     static let API_ZhiHu_Url:String = "https://www.zhihu.com"
     //知乎专栏
-    static let API_ZhuanLan_Url:String = "https://zhuanlan.zhihu.com"
+    static let API_ZhuanLan_Url:String = "http://zhuanlan.zhihu.com"
     //知乎个人页
     static let API_ZhPersonal_Url:String = "https://www.zhihu.com/people"
     //排名数据
