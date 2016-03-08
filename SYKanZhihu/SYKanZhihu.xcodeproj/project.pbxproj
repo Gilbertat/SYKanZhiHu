@@ -19,6 +19,7 @@
 		9795DF9B1C746A3800F4307F /* SYDataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */; };
 		9795DF9D1C746A4500F4307F /* SYHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF9C1C746A4500F4307F /* SYHttpManager.swift */; };
 		9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DFA01C74714E00F4307F /* BaseManager.swift */; };
+		97F99EF61C8DC07F00445F72 /* UIColor+kanzhihu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F99EF51C8DC07F00445F72 /* UIColor+kanzhihu.swift */; };
 		97FB57D01C7AAE9F00CF06BA /* SYListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57CF1C7AAE9F00CF06BA /* SYListDetailViewController.swift */; };
 		97FB57D21C7AAEBA00CF06BA /* SYListDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D11C7AAEBA00CF06BA /* SYListDetailModel.swift */; };
 		97FB57D41C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FB57D31C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		9795DF9A1C746A3800F4307F /* SYDataBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYDataBaseManager.swift; sourceTree = "<group>"; };
 		9795DF9C1C746A4500F4307F /* SYHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHttpManager.swift; sourceTree = "<group>"; };
 		9795DFA01C74714E00F4307F /* BaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		97F99EF51C8DC07F00445F72 /* UIColor+kanzhihu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+kanzhihu.swift"; sourceTree = "<group>"; };
 		97FB57CF1C7AAE9F00CF06BA /* SYListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListDetailViewController.swift; sourceTree = "<group>"; };
 		97FB57D11C7AAEBA00CF06BA /* SYListDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListDetailModel.swift; sourceTree = "<group>"; };
 		97FB57D31C7AAEDA00CF06BA /* SYListDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYListDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				97FB57CB1C7AAE6C00CF06BA /* ListDetail */,
 				97FCFAB71C7F165300AD78FA /* User */,
 				9795DF8D1C7460F800F4307F /* Ranking */,
+				97F99EF41C8DC06100445F72 /* Extensions */,
 				9795DF971C74670700F4307F /* Manager */,
 			);
 			path = Class;
@@ -230,6 +233,14 @@
 				9795DF9C1C746A4500F4307F /* SYHttpManager.swift */,
 			);
 			path = SYHttpManager;
+			sourceTree = "<group>";
+		};
+		97F99EF41C8DC06100445F72 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				97F99EF51C8DC07F00445F72 /* UIColor+kanzhihu.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		97FB57CB1C7AAE6C00CF06BA /* ListDetail */ = {
@@ -465,6 +476,7 @@
 				9795DF941C74617800F4307F /* SYRankingViewController.swift in Sources */,
 				97FCFAD81C8AD06600AD78FA /* RefreshHeaderView.swift in Sources */,
 				9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */,
+				97F99EF61C8DC07F00445F72 /* UIColor+kanzhihu.swift in Sources */,
 				97FCFAD21C8928BA00AD78FA /* RefreshBase.swift in Sources */,
 				97FCFAD41C8928D600AD78FA /* RefreshConst.swift in Sources */,
 				97FCFAC81C84029A00AD78FA /* SYConsentTableViewCell.swift in Sources */,

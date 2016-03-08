@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 242.0/255.0, green: 116.0/255.0, blue: 119.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(netHex:0x353a48)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         if let barFont = UIFont(name: "Avenir-Light", size:20.0) {
