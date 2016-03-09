@@ -13,5 +13,85 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYKanZhihu/Class/ListDetail/Controller/SYListDetailViewController.swift"
+            timestampString = "479231314.173789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYKanZhihu/Class/ListDetail/Controller/SYDetailRequest.swift"
+            timestampString = "479227649.319021"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "httpRequest()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYKanZhihu/Class/ListDetail/Controller/SYDetailRequest.swift"
+            timestampString = "479231037.026358"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "httpRequest()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SYKanZhihu.DetailListRequest.httpRequest (SYKanZhihu.DetailListRequest)() -&gt; ()"
+                  moduleName = "SYKanZhihu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyue/Desktop/SYKanZhihu/SYKanZhihu/SYKanZhihu/Class/ListDetail/Controller/SYDetailRequest.swift"
+                  timestampString = "479231315.188178"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SYKanZhihu.DetailListRequest.(httpRequest (SYKanZhihu.DetailListRequest) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "SYKanZhihu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shiyue/Desktop/SYKanZhihu/SYKanZhihu/SYKanZhihu/Class/ListDetail/Controller/SYDetailRequest.swift"
+                  timestampString = "479231315.188351"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

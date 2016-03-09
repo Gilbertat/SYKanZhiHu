@@ -63,19 +63,19 @@ class SYHomeViewController: UIViewController {
     }
     
     //MARK: -segue传值,用于聚合下列表请求数据
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "viewList" {
-            
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let model:HomeModel = self.dataSource[indexPath.row]
-                let destinationController = segue.destinationViewController as! SYListDetailViewController
-                destinationController.requestDate = model.date!
-                destinationController.requestState = model.name!
-                destinationController.avaterUrl = model.pic!
-                destinationController.catagoryName = model.categoryName![model.name!]!
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "viewList" {
+//            
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                let model:HomeModel = self.dataSource[indexPath.row]
+//                let destinationController = segue.destinationViewController as! SYListDetailViewController
+//                destinationController.requestDate = model.date!
+//                destinationController.requestState = model.name!
+//                destinationController.avaterUrl = model.pic!
+//                destinationController.catagoryName = model.categoryName![model.name!]!
+//            }
+//        }
+//    }
     
     //MARK: -点击status bar 显示 navigationbar
      func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {

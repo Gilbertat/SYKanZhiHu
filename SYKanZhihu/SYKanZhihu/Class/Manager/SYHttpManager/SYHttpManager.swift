@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class SYHttp:NSObject {
+class SYHttp {
 
     /**
      Http get 请求
