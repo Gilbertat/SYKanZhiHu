@@ -22,6 +22,7 @@ class DetailListRequest {
         let urlString = "\(ApiConfig.API_Url)/\(self.page)"
         
         SYHttp.get(urlString, params: nil, success: {(json) -> Void in
+            
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["posts"] as? NSArray)!
             self.page = (array.lastObject!["publishtime"]) as! String //根据此字段获取数据
@@ -38,8 +39,11 @@ class DetailListRequest {
     }
     
     func sendModel(tag:Int) -> HomeModel {
+        var model:HomeModel = HomeModel()
         
-        let model:HomeModel = self.dataSource[tag]
+        if self.dataSource.count != 0 {
+            model = self.dataSource[tag]
+        }
         
         return model
     }
