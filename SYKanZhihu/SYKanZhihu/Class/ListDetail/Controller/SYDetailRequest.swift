@@ -37,4 +37,11 @@ class DetailListRequest {
         }
     }
     
+    func sendModel(tag:Int) -> HomeModel {
+        
+        let model:HomeModel = self.dataSource[tag]
+        
+        return model
+    }
+    
 }

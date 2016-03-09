@@ -17,6 +17,9 @@ class SYListDetailViewController: UIViewController {
     var avaterUrl = ""
     var catagoryName = ""
     var dataSource:Array<ListDetailModel> = Array()
+    var detailRequest = DetailListRequest()
+    var homeModel:HomeModel = HomeModel()
+    var number = 1
     @IBOutlet weak var tableView: UITableView!
     var avaterView = UIImageView()
     let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
@@ -27,12 +30,15 @@ class SYListDetailViewController: UIViewController {
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        self.homeModel = detailRequest.sendModel(number)
+        
         //tableHeaderView
-        self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
-        avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
-        self.tableView.tableHeaderView = avaterView
+//        self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
+//        avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
+//        self.tableView.tableHeaderView = avaterView
         
         //设置title
+        
         let dataArray = requestDate.componentsSeparatedByString("-")
         let date = "\(dataArray[0])年\(dataArray[1])月\(dataArray[2])日"
         
@@ -148,6 +154,16 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
             
             return cell
         }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == self.dataSource.count - 1 {
+            ++number
+            self.homeModel = detailRequest.sendModel(number)
+        }
+        
+        
     }
     
     
