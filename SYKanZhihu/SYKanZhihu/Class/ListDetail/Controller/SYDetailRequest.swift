@@ -15,7 +15,7 @@ class DetailListRequest {
     
     var page = ""
     var dataSource : Array<HomeModel> = Array()
-
+    var model:HomeModel = HomeModel()
 
     func httpRequest() {
         
@@ -39,7 +39,7 @@ class DetailListRequest {
     }
     
     func sendModel(tag:Int) -> HomeModel {
-        var model:HomeModel = HomeModel()
+      
         
         if self.dataSource.count != 0 {
             model = self.dataSource[tag]

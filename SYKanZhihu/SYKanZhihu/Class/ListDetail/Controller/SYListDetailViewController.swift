@@ -17,7 +17,7 @@ class SYListDetailViewController: UIViewController {
     var avaterUrl = ""
     var catagoryName = ""
     var dataSource:Array<ListDetailModel> = Array()
-    var detailRequest:DetailListRequest!
+    var detailRequest = DetailListRequest()
     var homeModel:HomeModel = HomeModel()
     var number = 0
     @IBOutlet weak var tableView: UITableView!
@@ -32,9 +32,13 @@ class SYListDetailViewController: UIViewController {
         
         self.detailRequest.httpRequest()
         self.homeModel = detailRequest.sendModel(number)
+
         
-        self.requestDate = self.homeModel.date!
-        self.requestState = self.homeModel.name!
+            self.requestDate = self.homeModel.date!
+            self.requestState = self.homeModel.name!
+            //请求数据
+            self.requestData()
+        
 
         
         tableView.estimatedRowHeight = 68.0
@@ -53,8 +57,7 @@ class SYListDetailViewController: UIViewController {
         self.title = "精华"
         
         
-        //请求数据
-        self.requestData()
+      
     }
     func requestData() {
         
@@ -175,9 +178,7 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
             self.requestData()
         }
         
-        
     }
-    
     
 }
 
