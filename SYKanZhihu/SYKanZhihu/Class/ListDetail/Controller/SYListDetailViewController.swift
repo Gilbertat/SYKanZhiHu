@@ -10,15 +10,13 @@ import UIKit
 import Kingfisher
 
 class SYListDetailViewController: UIViewController {
-
+    
     //用于请求数据
     var requestDate = ""
     var requestState = ""
     var avaterUrl = ""
     var catagoryName = ""
     var dataSource:Array<ListDetailModel> = Array()
-    var homeModel:HomeModel = HomeModel()
-    var number = 0
     @IBOutlet weak var tableView: UITableView!
     var avaterView = UIImageView()
     let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
@@ -26,29 +24,23 @@ class SYListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-                  //请求数据
-            self.requestData()
-        
-
-        
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-
-       // tableHeaderView
+        
+        //tableHeaderView
         self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
         avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
         self.tableView.tableHeaderView = avaterView
         
         //设置title
-        
         let dataArray = requestDate.componentsSeparatedByString("-")
         let date = "\(dataArray[0])年\(dataArray[1])月\(dataArray[2])日"
         
-        self.title = "精华"
+        self.title = date + self.catagoryName
         
         
-      
+        //请求数据
+        self.requestData()
     }
     func requestData() {
         
@@ -68,7 +60,7 @@ class SYListDetailViewController: UIViewController {
                 self.tableView.reloadData()
             })
             
-
+            
             }) { (error) -> Void in
                 print(error) //暂不处理错误
         }
@@ -85,18 +77,18 @@ class SYListDetailViewController: UIViewController {
         destinationController.navigationItem.title = model.authorname
         
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         
         self.navigationController?.hidesBarsOnSwipe = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-
+        
     }
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
 }
 
@@ -151,25 +143,13 @@ extension SYListDetailViewController:UITableViewDelegate,UITableViewDataSource
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("answerCell", forIndexPath: indexPath) as! SYListDetailTableViewCell
             
-          
-                cell.setAnswer(model)
+            
+            cell.setAnswer(model)
             
             return cell
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if indexPath.row == self.dataSource.count - 1 {
-            ++number
-            detailRequest.httpRequest()
-            self.homeModel = detailRequest.sendModel(number)
-            self.requestDate = self.homeModel.date!
-            self.requestState = self.homeModel.name!
-            self.requestData()
-        }
-        
-    }
     
 }
 
