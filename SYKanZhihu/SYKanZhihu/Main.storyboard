@@ -201,7 +201,7 @@
                                             <outlet property="dataLabel" destination="YJe-cP-prH" id="ssS-UB-STg"/>
                                             <outlet property="describeLabel" destination="DcJ-Y2-f2y" id="Ghh-Ki-AgC"/>
                                             <outlet property="stateLabel" destination="LjA-4m-Sll" id="SgJ-Ve-ZeI"/>
-                                            <segue destination="P4F-V6-Ymz" kind="show" identifier="viewList" id="CbM-5G-4Lm"/>
+                                            <segue destination="P4F-V6-Ymz" kind="show" identifier="viewList" id="kEh-AY-JqP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZd-ta-tT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256" y="73"/>
+            <point key="canvasLocation" x="1255" y="73"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="Ex9-oz-JS7">
@@ -286,23 +286,19 @@
                                                     <rect key="frame" x="88" y="49" width="504" height="15"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bA2-ia-ESA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="15"/>
-                                                            <rect key="frame" x="0.0" y="0.0" width="163.5"                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeU-fs-mUq">
-                                                            <rect key="frame" x="171" y="0.0" width="163" height="15"/>
                                                             <rect key="frame" x="170.5" y="0.0" width="163" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-bs-qyu">
-                                                            <rect key="frame" x="341" y="0.0" width="164" height="15"/>
-
                                                             <rect key="frame" x="340" y="0.0" width="163.5" height="15"/>
-
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -321,11 +317,6 @@
                                                     </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-c1-tAr">
-
-                                                    <rect key="frame" x="88" y="64" width="504" height="14"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA的回答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swh-M2-sI0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="14"/>
                                                     <rect key="frame" x="88" y="64" width="504" height="13.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA的回答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swh-M2-sI0">
@@ -335,21 +326,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA关注的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrC-Pq-Ulk">
-<<<<<<< HEAD
-                                                            <rect key="frame" x="171" y="0.0" width="163" height="14"/>
-=======
                                                             <rect key="frame" x="170" y="0.0" width="163" height="13.5"/>
->>>>>>> f815331c98b7aedb4898d1ec64ea562b86ecb35b
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注TA的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sT-Kx-Xzn">
-<<<<<<< HEAD
-                                                            <rect key="frame" x="341" y="0.0" width="164" height="14"/>
-=======
                                                             <rect key="frame" x="340" y="0.0" width="163.5" height="13.5"/>
->>>>>>> f815331c98b7aedb4898d1ec64ea562b86ecb35b
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -796,7 +779,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="R0K-0t-azT" kind="relationship" relationship="rootViewController" id="CMY-2l-2cL"/>
+                        <segue destination="R0K-0t-azT" kind="relationship" relationship="rootViewController" id="dEK-i6-5mX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5y-c0-UNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
