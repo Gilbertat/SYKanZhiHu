@@ -17,7 +17,6 @@ class SYListDetailViewController: UIViewController {
     var avaterUrl = ""
     var catagoryName = ""
     var dataSource:Array<ListDetailModel> = Array()
-    var detailRequest = DetailListRequest()
     var homeModel:HomeModel = HomeModel()
     var number = 0
     @IBOutlet weak var tableView: UITableView!
@@ -28,15 +27,7 @@ class SYListDetailViewController: UIViewController {
         super.viewDidLoad()
         
         
-        self.detailRequest = DetailListRequest()
-        
-        self.detailRequest.httpRequest()
-        self.homeModel = detailRequest.sendModel(number)
-
-        
-            self.requestDate = self.homeModel.date!
-            self.requestState = self.homeModel.name!
-            //请求数据
+                  //请求数据
             self.requestData()
         
 
@@ -44,15 +35,15 @@ class SYListDetailViewController: UIViewController {
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        //tableHeaderView
-//        self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
-//        avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
-//        self.tableView.tableHeaderView = avaterView
+       // tableHeaderView
+        self.avaterView.frame = CGRectMake(0, 0, self.SCREEN_WIDTH, self.SCREEN_WIDTH / 2)
+        avaterView.kf_setImageWithURL(NSURL(string:self.avaterUrl)!)
+        self.tableView.tableHeaderView = avaterView
         
         //设置title
         
-//        let dataArray = requestDate.componentsSeparatedByString("-")
-//        let date = "\(dataArray[0])年\(dataArray[1])月\(dataArray[2])日"
+        let dataArray = requestDate.componentsSeparatedByString("-")
+        let date = "\(dataArray[0])年\(dataArray[1])月\(dataArray[2])日"
         
         self.title = "精华"
         

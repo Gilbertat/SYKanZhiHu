@@ -11,7 +11,7 @@ import UIKit
 import AMScrollingNavbar
 
 class SYHomeViewController: UIViewController {
-
+    
     var dataSource : Array<HomeModel> = Array()
     @IBOutlet weak var tableView: UITableView!
     var page = ""
@@ -28,7 +28,7 @@ class SYHomeViewController: UIViewController {
     
     //MARK: -请求网络数据
     func httpRequest() {
-    
+        
         let urlString = "\(ApiConfig.API_Url)/\(self.page)"
         
         SYHttp.get(urlString, params: nil, success: {(json) -> Void in
@@ -45,9 +45,9 @@ class SYHomeViewController: UIViewController {
                 self.tableView.reloadData()
             })
             
-        }) { (error) -> Void in
+            }) { (error) -> Void in
                 
-            print(error)
+                print(error)
         }
         
     }
@@ -55,30 +55,30 @@ class SYHomeViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "精华"
-    
+        
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.followScrollView(tableView, delay: 50.0)
         }
-     
+        
     }
     
     //MARK: -segue传值,用于聚合下列表请求数据
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "viewList" {
-//            
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                let model:HomeModel = self.dataSource[indexPath.row]
-//                let destinationController = segue.destinationViewController as! SYListDetailViewController
-//                destinationController.requestDate = model.date!
-//                destinationController.requestState = model.name!
-//                destinationController.avaterUrl = model.pic!
-//                destinationController.catagoryName = model.categoryName![model.name!]!
-//            }
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "viewList" {
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let model:HomeModel = self.dataSource[indexPath.row]
+                let destinationController = segue.destinationViewController as! SYListDetailViewController
+                destinationController.requestDate = model.date!
+                destinationController.requestState = model.name!
+                destinationController.avaterUrl = model.pic!
+                destinationController.catagoryName = model.categoryName![model.name!]!
+            }
+        }
+    }
     
     //MARK: -点击status bar 显示 navigationbar
-     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.showNavbar(animated: true)
         }
@@ -93,10 +93,10 @@ class SYHomeViewController: UIViewController {
             navigationController.showNavbar(animated: true)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
     
 }
@@ -105,7 +105,7 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-    
+        
         return dataSource.count
         
     }

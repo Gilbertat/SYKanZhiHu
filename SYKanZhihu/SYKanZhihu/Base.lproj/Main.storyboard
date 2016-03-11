@@ -201,7 +201,7 @@
                                             <outlet property="dataLabel" destination="YJe-cP-prH" id="ssS-UB-STg"/>
                                             <outlet property="describeLabel" destination="DcJ-Y2-f2y" id="Ghh-Ki-AgC"/>
                                             <outlet property="stateLabel" destination="LjA-4m-Sll" id="SgJ-Ve-ZeI"/>
-                                            <segue destination="P4F-V6-Ymz" kind="show" id="CbM-5G-4Lm"/>
+                                            <segue destination="P4F-V6-Ymz" kind="show" identifier="viewList" id="CbM-5G-4Lm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
