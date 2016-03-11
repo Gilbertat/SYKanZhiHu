@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		971957831C760B360069C7B4 /* SYHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971957821C760B360069C7B4 /* SYHomeTableViewCell.swift */; };
-		972E7A111C8EDED9002D2EC8 /* SYDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972E7A101C8EDED9002D2EC8 /* SYDetailRequest.swift */; };
 		9795DF771C7456E600F4307F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795DF761C7456E600F4307F /* AppDelegate.swift */; };
 		9795DF7C1C7456E600F4307F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9795DF7A1C7456E600F4307F /* Main.storyboard */; };
 		9795DF7E1C7456E600F4307F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9795DF7D1C7456E600F4307F /* Assets.xcassets */; };
@@ -47,7 +46,6 @@
 		640B06AFF76B11A9913F9F57 /* Pods-SYKanZhihu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYKanZhihu.release.xcconfig"; path = "Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu.release.xcconfig"; sourceTree = "<group>"; };
 		93E78118EC9848EA0695C229 /* Pods_SYKanZhihu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SYKanZhihu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971957821C760B360069C7B4 /* SYHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYHomeTableViewCell.swift; sourceTree = "<group>"; };
-		972E7A101C8EDED9002D2EC8 /* SYDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYDetailRequest.swift; sourceTree = "<group>"; };
 		9795DF731C7456E600F4307F /* SYKanZhihu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SYKanZhihu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9795DF761C7456E600F4307F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9795DF7B1C7456E600F4307F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				97FB57CF1C7AAE9F00CF06BA /* SYListDetailViewController.swift */,
-				972E7A101C8EDED9002D2EC8 /* SYDetailRequest.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -480,7 +477,6 @@
 				97FCFAD81C8AD06600AD78FA /* RefreshHeaderView.swift in Sources */,
 				9795DFA11C74714E00F4307F /* BaseManager.swift in Sources */,
 				97F99EF61C8DC07F00445F72 /* UIColor+kanzhihu.swift in Sources */,
-				972E7A111C8EDED9002D2EC8 /* SYDetailRequest.swift in Sources */,
 				97FCFAD21C8928BA00AD78FA /* RefreshBase.swift in Sources */,
 				97FCFAD41C8928D600AD78FA /* RefreshConst.swift in Sources */,
 				97FCFAC81C84029A00AD78FA /* SYConsentTableViewCell.swift in Sources */,
