@@ -50,7 +50,6 @@ class SYHomeViewController: UIViewController {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
-                self.tableView.easy_stopUpPull()
             })
             
             }) { (error) -> Void in
@@ -156,9 +155,7 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.row == self.dataSource.count - 1 {
-            self.tableView.easy_addUpPullAutomatic({
                 self.httpRequest()
-            })
         }
     }
     
