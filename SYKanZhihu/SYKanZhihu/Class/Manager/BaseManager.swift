@@ -12,6 +12,8 @@ class ApiConfig {
     
     //聚合数据API
     static let API_Url:String = "http://api.kanzhihu.com/getposts"
+    //查看是否有新聚合
+    static let API_CheckNew:String = "http://api.kanzhihu.com/checknew/"
     //聚合数据下文章列表API
     static let API_List_Url:String = "http://api.kanzhihu.com/getpostanswers"
     //文章列表下详细文章API

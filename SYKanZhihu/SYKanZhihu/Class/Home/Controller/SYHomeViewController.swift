@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
 import AMScrollingNavbar
+import EasyPull
 
 class SYHomeViewController: UIViewController {
     
@@ -21,9 +21,16 @@ class SYHomeViewController: UIViewController {
         
         tableView.estimatedRowHeight = 85.5
         tableView.rowHeight = UITableViewAutomaticDimension
+        self.navigationController?.navigationBar.translucent = false
+        self.tabBarController?.tabBar.translucent = false
+
         self.page = ""
         
         httpRequest()
+        
+        tableView.easy_addDropPull({
+            self.checkNew()
+        })
     }
     
     //MARK: -请求网络数据
@@ -31,7 +38,7 @@ class SYHomeViewController: UIViewController {
         
         let urlString = "\(ApiConfig.API_Url)/\(self.page)"
         
-        SYHttp.get(urlString, params: nil, success: {(json) -> Void in
+        SYHttp.get(urlString, params: nil, success: {[unowned self](json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["posts"] as? NSArray)!
             self.page = (array.lastObject!["publishtime"]) as! String //根据此字段获取数据
@@ -43,6 +50,7 @@ class SYHomeViewController: UIViewController {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                self.tableView.easy_stopUpPull()
             })
             
             }) { (error) -> Void in
@@ -50,6 +58,26 @@ class SYHomeViewController: UIViewController {
                 print(error)
         }
         
+    }
+    //MARK: -查看文章是否有更新
+    func checkNew() {
+        let checkString = "\(ApiConfig.API_CheckNew)/\(self.page)"
+        
+        SYHttp.get(checkString, params: nil, success: {[unowned self] (json) -> Void in
+            
+            let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
+            
+            let result:Bool = data!["result"] as! Bool
+            
+            if result == true {
+                self.tableView.easy_stopDropPull()
+            } else {
+                print("no new article")
+            }
+            
+            }) { (error) -> Void in
+                print(error)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -128,7 +156,9 @@ extension SYHomeViewController:UITableViewDataSource,UITableViewDelegate {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.row == self.dataSource.count - 1 {
-            self.httpRequest()
+            self.tableView.easy_addUpPullAutomatic({
+                self.httpRequest()
+            })
         }
     }
     

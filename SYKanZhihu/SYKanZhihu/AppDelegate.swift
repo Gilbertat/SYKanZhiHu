@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //更改全局UINavigationBar title颜色
         UINavigationBar.appearance().barTintColor = UIColor(netHex:0x353a48)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    
         
         if let barFont = UIFont(name: "Avenir-Light", size:20.0) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:barFont]
