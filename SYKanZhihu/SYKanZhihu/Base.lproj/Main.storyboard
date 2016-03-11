@@ -287,18 +287,22 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bA2-ia-ESA">
                                                             <rect key="frame" x="0.0" y="0.0" width="164" height="15"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="163.5"                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeU-fs-mUq">
                                                             <rect key="frame" x="171" y="0.0" width="163" height="15"/>
+                                                            <rect key="frame" x="170.5" y="0.0" width="163" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-bs-qyu">
                                                             <rect key="frame" x="341" y="0.0" width="164" height="15"/>
+
+                                                            <rect key="frame" x="340" y="0.0" width="163.5" height="15"/>
+
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                             <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -317,22 +321,35 @@
                                                     </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="mjW-c1-tAr">
+
                                                     <rect key="frame" x="88" y="64" width="504" height="14"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA的回答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swh-M2-sI0">
                                                             <rect key="frame" x="0.0" y="0.0" width="164" height="14"/>
+                                                    <rect key="frame" x="88" y="64" width="504" height="13.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA的回答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swh-M2-sI0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="13.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA关注的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrC-Pq-Ulk">
+<<<<<<< HEAD
                                                             <rect key="frame" x="171" y="0.0" width="163" height="14"/>
+=======
+                                                            <rect key="frame" x="170" y="0.0" width="163" height="13.5"/>
+>>>>>>> f815331c98b7aedb4898d1ec64ea562b86ecb35b
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注TA的人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sT-Kx-Xzn">
+<<<<<<< HEAD
                                                             <rect key="frame" x="341" y="0.0" width="164" height="14"/>
+=======
+                                                            <rect key="frame" x="340" y="0.0" width="163.5" height="13.5"/>
+>>>>>>> f815331c98b7aedb4898d1ec64ea562b86ecb35b
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -340,7 +357,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75G-yv-bxY">
-                                                    <rect key="frame" x="15" y="92" width="577" height="20"/>
+                                                    <rect key="frame" x="15" y="92" width="577" height="19.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -771,7 +788,7 @@
         <scene sceneID="ofb-Um-wJ6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YeA-pR-4oY" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="精华" image="Feed_Normal" selectedImage="Feed_Highlight" id="a2V-fq-wy2"/>
+                    <tabBarItem key="tabBarItem" title="精华" image="tab_picks_def" selectedImage="tab_picks_cli" id="a2V-fq-wy2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zhs-ac-nBO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -790,7 +807,7 @@
         <scene sceneID="HjJ-hI-uEV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hNL-V1-1fF" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="用户排行" image="Find_Normal" selectedImage="Find_Highlight" id="3JV-Cl-e3m"/>
+                    <tabBarItem key="tabBarItem" title="用户排行" image="tab_trend_def" selectedImage="tab_trend_cli" id="3JV-Cl-e3m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tsZ-IF-maY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -809,11 +826,11 @@
     <resources>
         <image name="Agree" width="33" height="33"/>
         <image name="DefaultAvatar" width="66" height="66"/>
-        <image name="Feed_Highlight" width="29" height="29"/>
-        <image name="Feed_Normal" width="29" height="29"/>
-        <image name="Find_Highlight" width="29" height="29"/>
-        <image name="Find_Normal" width="29" height="29"/>
         <image name="Thanks" width="33" height="33"/>
+        <image name="tab_picks_cli" width="27" height="27"/>
+        <image name="tab_picks_def" width="27" height="27"/>
+        <image name="tab_trend_cli" width="27" height="27"/>
+        <image name="tab_trend_def" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ncr-09-EKp"/>

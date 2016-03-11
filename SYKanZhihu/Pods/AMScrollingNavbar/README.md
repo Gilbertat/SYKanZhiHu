@@ -2,7 +2,7 @@
   <img width="420" height="240" src="assets/logo.png"/>
 </p>
 
-[![Cocoapods](https://cocoapod-badges.herokuapp.com/v/AMScrollingNavbar/badge.svg)](http://www.cocoapods.org/?q=amscrollingnavbar)
+[![CocoaPods](https://cocoapod-badges.herokuapp.com/v/AMScrollingNavbar/badge.svg)](http://www.cocoapods.org/?q=amscrollingnavbar)
 [![Build Status](https://travis-ci.org/andreamazz/AMScrollingNavbar.svg)](https://travis-ci.org/andreamazz/AMScrollingNavbar)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![Swift 2.0](https://img.shields.io/badge/swift-2.0-orange.svg)
@@ -29,7 +29,7 @@ If you are looking for the category implementation in Objective-C, make sure to 
   <img width="520" height="536" src="assets/screenshot.gif"/>
 </p>
 
-#Setup with Cocoapods
+#Setup with CocoaPods
 
 ```
 pod 'AMScrollingNavbar', '~> 2.0.1'
@@ -113,6 +113,17 @@ func scrollingNavigationController(controller: ScrollingNavigationController, di
 }
 ```
 
+##Handling navigation
+If the view controller with the scroll view pushes new controllers, you should call `showNavbar(animated:)` in your `viewWillDisappear(animated:)`:
+```swift
+override func viewWillDisappear(animated: Bool) {
+  super.viewWillDisappear(animated)
+    if let navigationController = self.navigationController as? ScrollingNavigationController {
+      navigationController.showNavbar(animated: true)
+    }
+}
+```
+
 ##Scrolling to top
 When the user taps the status bar, by default a scrollable view scrolls to the top of its content. If you want to also show the navigation bar, make sure to include this in your controller:
 
@@ -138,7 +149,7 @@ Want to support the development of [these free libraries](https://cocoapods.org/
 #MIT License
     The MIT License (MIT)
 
-    Copyright (c) 2015 Andrea Mazzini
+    Copyright (c) 2016 Andrea Mazzini
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of
     this software and associated documentation files (the "Software"), to deal in
