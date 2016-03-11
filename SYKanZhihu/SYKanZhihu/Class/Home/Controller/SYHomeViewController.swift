@@ -38,7 +38,7 @@ class SYHomeViewController: UIViewController {
         
         let urlString = "\(ApiConfig.API_Url)/\(self.page)"
         
-        SYHttp.get(urlString, params: nil, success: {[unowned self](json) -> Void in
+        SYHttp.get(urlString, params:nil, success: {[unowned self](json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["posts"] as? NSArray)!
             self.page = (array.lastObject!["publishtime"]) as! String //根据此字段获取数据
