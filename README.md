@@ -4,9 +4,9 @@ iOS KanZhiHu App(Swift versions) (http://www.kanzhihu.com/)
 clone is,open the xcworkspace file, if the file is a blank,please use terminal and 
 cd to the project directory execute pod update command
 ## Status
-3-1-2016 The first version is finished                           
-3-3-2016 Add Jump from App to another App
-3-12-2016 Add 3D Touch Quick Action
+- 3-1-2016 The first version is finished                           
+- 3-3-2016 Add Jump from App to another App
+- 3-12-2016 Add 3D Touch Quick Action
 
 ## Open source library used
 - [Alamofire][1]
