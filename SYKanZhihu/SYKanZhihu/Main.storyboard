@@ -9,7 +9,7 @@
         <!--Ranking View Controller-->
         <scene sceneID="0z0-hN-kdS">
             <objects>
-                <viewController id="JwV-cZ-VYW" customClass="SYRankingViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ranking" id="JwV-cZ-VYW" customClass="SYRankingViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uqX-WI-h4C"/>
                         <viewControllerLayoutGuide type="bottom" id="a59-dc-J3P"/>
@@ -130,7 +130,7 @@
         <!--Home View Controller-->
         <scene sceneID="obj-jG-2PE">
             <objects>
-                <viewController id="R0K-0t-azT" customClass="SYHomeViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="R0K-0t-azT" customClass="SYHomeViewController" customModule="SYKanZhihu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UwM-2a-03r"/>
                         <viewControllerLayoutGuide type="bottom" id="emm-RO-6Ul"/>
@@ -816,6 +816,6 @@
         <image name="tab_trend_def" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ncr-09-EKp"/>
+        <segue reference="cdI-rs-g2B"/>
     </inferredMetricsTieBreakers>
 </document>

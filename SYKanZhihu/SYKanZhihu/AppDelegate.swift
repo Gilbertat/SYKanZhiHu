@@ -8,6 +8,8 @@
 
 import UIKit
 
+import AMScrollingNavbar
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -34,6 +36,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         return true
+    }
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem:
+        UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let storyBoard = UIStoryboard(name:"Main", bundle: NSBundle.mainBundle())
+        if shortcutItem.localizedTitle == "首页" {
+            let home:SYHomeViewController = storyBoard.instantiateViewControllerWithIdentifier("home") as! SYHomeViewController
+            let navi:ScrollingNavigationController = ScrollingNavigationController(rootViewController: home)
+            self.window?.rootViewController = navi
+        } else {
+            let ranking:SYRankingViewController = storyBoard.instantiateViewControllerWithIdentifier("ranking") as! SYRankingViewController
+            let navi:ScrollingNavigationController = ScrollingNavigationController(rootViewController: ranking)
+            self.window?.rootViewController = navi
+        }
     }
     
     func applicationWillResignActive(application: UIApplication) {
