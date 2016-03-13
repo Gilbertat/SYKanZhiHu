@@ -23,7 +23,9 @@ class SYHomeViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         self.navigationController?.navigationBar.translucent = false
         self.tabBarController?.tabBar.translucent = false
-
+   
+        self.navigationItem.title = "精华"
+        
         self.page = ""
         
         httpRequest()
@@ -81,7 +83,6 @@ class SYHomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "精华"
         
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.followScrollView(tableView, delay: 50.0)

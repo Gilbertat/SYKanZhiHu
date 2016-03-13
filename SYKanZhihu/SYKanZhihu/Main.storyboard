@@ -761,17 +761,20 @@
                     <connections>
                         <segue destination="YeA-pR-4oY" kind="relationship" relationship="viewControllers" id="hwS-4g-STc"/>
                         <segue destination="hNL-V1-1fF" kind="relationship" relationship="viewControllers" id="M4c-nf-CBg"/>
+                        <segue destination="4vn-Xi-n3o" kind="relationship" relationship="viewControllers" id="tGV-41-XXd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMA-AU-ccb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-440" y="387"/>
+            <point key="canvasLocation" x="-656" y="384"/>
         </scene>
-        <!--精华-->
+        <!--Scrolling Navigation Controller-->
         <scene sceneID="ofb-Um-wJ6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YeA-pR-4oY" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="精华" image="tab_picks_def" selectedImage="tab_picks_cli" id="a2V-fq-wy2"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_picks_def" selectedImage="tab_picks_cli" id="a2V-fq-wy2">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zhs-ac-nBO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -786,11 +789,13 @@
             </objects>
             <point key="canvasLocation" x="444" y="73"/>
         </scene>
-        <!--用户排行-->
+        <!--Scrolling Navigation Controller-->
         <scene sceneID="HjJ-hI-uEV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hNL-V1-1fF" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="用户排行" image="tab_trend_def" selectedImage="tab_trend_cli" id="3JV-Cl-e3m"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_trend_def" selectedImage="tab_trend_cli" id="3JV-Cl-e3m">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tsZ-IF-maY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -805,11 +810,63 @@
             </objects>
             <point key="canvasLocation" x="444" y="783"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="oj6-mZ-rlX">
+            <objects>
+                <viewController id="87f-uC-YdY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hjM-jd-Diw"/>
+                        <viewControllerLayoutGuide type="bottom" id="SBG-dj-cEp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vMF-px-lsz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-Vn-CEq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="g5N-Vn-CEq" secondAttribute="bottom" id="40S-3t-79y"/>
+                            <constraint firstItem="g5N-Vn-CEq" firstAttribute="top" secondItem="vMF-px-lsz" secondAttribute="top" id="Ed6-ef-z7S"/>
+                            <constraint firstAttribute="trailing" secondItem="g5N-Vn-CEq" secondAttribute="trailing" id="Kxn-7R-Zyz"/>
+                            <constraint firstItem="g5N-Vn-CEq" firstAttribute="leading" secondItem="vMF-px-lsz" secondAttribute="leading" id="nG8-sX-Rzp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1VA-Ph-XJ0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihy-Jj-qk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="1628"/>
+        </scene>
+        <!--Scrolling Navigation Controller-->
+        <scene sceneID="gBY-e7-PgH">
+            <objects>
+                <navigationController id="4vn-Xi-n3o" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab_center_def" selectedImage="tab_center_cli" id="YKL-fK-yCu">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WeA-HT-fFr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="87f-uC-YdY" kind="relationship" relationship="rootViewController" id="ZNs-LM-gv7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="irF-Bo-f19" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="1628"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Agree" width="33" height="33"/>
         <image name="DefaultAvatar" width="66" height="66"/>
         <image name="Thanks" width="33" height="33"/>
+        <image name="tab_center_cli" width="27" height="27"/>
+        <image name="tab_center_def" width="27" height="27"/>
         <image name="tab_picks_cli" width="27" height="27"/>
         <image name="tab_picks_def" width="27" height="27"/>
         <image name="tab_trend_cli" width="27" height="27"/>
