@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (3.2.1)
   - AMScrollingNavbar (2.0.13)
-  - EasyPull (1.1.0)
+  - EasyPull (1.1.1)
   - Kingfisher (2.1.0)
 
 DEPENDENCIES:
@@ -13,7 +13,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   AMScrollingNavbar: 4445a6ce4b40c09ad56b28f2dd8d3516b350e089
-  EasyPull: dc415bd462f7b0dd36c05bd7bb321a2aa3b9b9f2
+  EasyPull: 2d5a1b0b2b09b92f7db44d8084e2839782b4d8c5
   Kingfisher: 3ac09acad75a25ab22f6d7cef3de10d61dd4792d
 
 PODFILE CHECKSUM: 08309c6d3e08e577a1497cb16c6eb31ef0b93861
