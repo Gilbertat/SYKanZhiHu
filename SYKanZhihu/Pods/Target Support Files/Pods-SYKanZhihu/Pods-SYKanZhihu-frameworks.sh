@@ -84,14 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-SYKanZhihu/AMScrollingNavbar.framework"
-  install_framework "Pods-SYKanZhihu/Alamofire.framework"
-  install_framework "Pods-SYKanZhihu/EasyPull.framework"
-  install_framework "Pods-SYKanZhihu/Kingfisher.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/AMScrollingNavbar/AMScrollingNavbar.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/EasyPull/EasyPull.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Kingfisher/Kingfisher.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Log/Log.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-SYKanZhihu/AMScrollingNavbar.framework"
-  install_framework "Pods-SYKanZhihu/Alamofire.framework"
-  install_framework "Pods-SYKanZhihu/EasyPull.framework"
-  install_framework "Pods-SYKanZhihu/Kingfisher.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/AMScrollingNavbar/AMScrollingNavbar.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/EasyPull/EasyPull.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Kingfisher/Kingfisher.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Log/Log.framework"
 fi

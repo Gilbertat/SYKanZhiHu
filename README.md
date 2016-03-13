@@ -13,6 +13,7 @@ cd to the project directory execute pod update command
 - [Kingfisher][2]
 - [AMScrollingNavbar][3]
 - [EasyPull][4]
+- [Log] [7]
 
 ##  Acknowledgements
 - [知乎网][5]
@@ -26,5 +27,5 @@ cd to the project directory execute pod update command
 [4]:https://github.com/ronghaopger/EasyPull
 [5]:https://www.zhihu.com/
 [6]:http://www.kanzhihu.com/
-
+[7]:https://github.com/delba/Log
 
