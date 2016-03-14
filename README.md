@@ -7,6 +7,7 @@ cd to the project directory execute pod update command
 - 3-1-2016 The first version is finished                           
 - 3-3-2016 Add Jump from App to another App
 - 3-12-2016 Add 3D Touch Quick Action
+- 3-14-2016 Finished 1.1 version prepare upload to AppStore
 
 ## Open source library used
 - [Alamofire][1]
