@@ -34,7 +34,7 @@ class SYRankingViewController: UIViewController {
         }
         urlString = "\(urlString)/\(++self.page)/50"
         
-        SYHttp.get(urlString, params: nil, success: { (json) -> Void in
+        SYHttp.get(urlString, params: nil, success: { [unowned self] (json) -> Void in
             let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
             let array:NSArray = (data!["topuser"] as? NSArray)!
             self.otherArray.addObjectsFromArray(array as [AnyObject])

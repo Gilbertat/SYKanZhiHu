@@ -352,12 +352,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9795DF851C7456E600F4307F /* Build configuration list for PBXNativeTarget "SYKanZhihu" */;
 			buildPhases = (
-				01D13C93057975633D2C8E80 /* Check Pods Manifest.lock */,
+				01D13C93057975633D2C8E80 /* 📦 Check Pods Manifest.lock */,
 				9795DF6F1C7456E600F4307F /* Sources */,
 				9795DF701C7456E600F4307F /* Frameworks */,
 				9795DF711C7456E600F4307F /* Resources */,
-				DE66A91A3998B9BC08B3E87B /* Embed Pods Frameworks */,
-				D5C5C3F107D37492FAEC776B /* Copy Pods Resources */,
+				DE66A91A3998B9BC08B3E87B /* 📦 Embed Pods Frameworks */,
+				D5C5C3F107D37492FAEC776B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,14 +417,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01D13C93057975633D2C8E80 /* Check Pods Manifest.lock */ = {
+		01D13C93057975633D2C8E80 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,14 +432,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D5C5C3F107D37492FAEC776B /* Copy Pods Resources */ = {
+		D5C5C3F107D37492FAEC776B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,14 +447,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SYKanZhihu/Pods-SYKanZhihu-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE66A91A3998B9BC08B3E87B /* Embed Pods Frameworks */ = {
+		DE66A91A3998B9BC08B3E87B /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

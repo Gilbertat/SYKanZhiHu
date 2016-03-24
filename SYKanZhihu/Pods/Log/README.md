@@ -1,8 +1,20 @@
-# Log
+<p align="center">
+  <img src="https://raw.githubusercontent.com/delba/Log/assets/Logo@2x.png" />
+</p>
 
-`Log` is a small yet powerful logging tool which provides built-in themes and formatters, and a nice API to define your owns.
+<p align="center">
+    <a href="https://travis-ci.org/delba/Log"><img alt="Travis Status" src="https://img.shields.io/travis/delba/Log.svg"/></a>
+    <a href="https://img.shields.io/cocoapods/v/Log.svg"><img alt="CocoaPods compatible" src="https://img.shields.io/cocoapods/v/Log.svg"/></a>
+    <a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
+</p>
+
+`Log` is a powerful logging framework that provides built-in themes and formatters, and a nice API to define your owns.
 
 > Get the most out of `Log` by installing [`XcodeColors`](https://github.com/robbiehanson/XcodeColors) and [`KZLinkedConsole`](https://github.com/krzysztofzablocki/KZLinkedConsole)
+
+<p align="center">
+    <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#license">License</a>
+</p>
 
 ### Usage
 
@@ -17,6 +29,8 @@ Log.info(some, objects, here)
 Log.warning(one, two, three, separator: " - ")
 Log.error(error, terminator: "😱😱😱\n")
 ```
+
+<img src="https://raw.githubusercontent.com/delba/Log/assets/a.png">
 
 - Disable `Log` by setting `enabled` to `false`:
 
@@ -66,6 +80,8 @@ Log.formatter = .Detailed
 Log.theme = .TomorrowNight
 ```
 
+<img src="https://raw.githubusercontent.com/delba/Log/assets/b.png">
+
 > See the built-in [formatters](https://github.com/delba/Log/blob/master/Source/Extensions/Formatters.swift) and [themes](https://github.com/delba/Log/blob/master/Source/Extensions/Themes.swift) for more examples.
 
 **Tip:** `Log.format` and `Log.colors` can be useful to visually debug your logger.
@@ -82,8 +98,14 @@ Log.theme = nil
 
 ```swift
 let Basic = Logger(formatter: .Default)
-let Short = Logger(formatter: .Minimal, theme: .Tomorrow, minLevel: .Info)
+let Short = Logger(
+    formatter: Formatter("%@: %@", .Level, .Message),
+    theme:     .TomorrowNightEighties,
+    minLevel:  .Info
+)
 ```
+
+<img src="https://raw.githubusercontent.com/delba/Log/assets/c.png">
 
 - Include a custom `Block` component in your formatter to print its result in every log message: 
 
@@ -110,7 +132,7 @@ $ brew update
 $ brew install carthage
 ```
 
-To integrate Sorry into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate Log into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
 github "delba/Log"
@@ -126,7 +148,7 @@ You can install it with the following command:
 $ gem install cocoapods
 ```
 
-To integrate Sorry into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate Log into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 use_frameworks!

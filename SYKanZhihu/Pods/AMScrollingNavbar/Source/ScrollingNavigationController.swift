@@ -3,7 +3,7 @@ import UIKit
 /**
 Scrolling Navigation Bar delegate protocol
 */
-@objc public protocol ScrollingNavigationControllerDelegate {
+@objc public protocol ScrollingNavigationControllerDelegate: NSObjectProtocol {
     /**
     Called when the state of the navigation bar changes
     */
@@ -61,9 +61,9 @@ public class ScrollingNavigationController: UINavigationController, UIGestureRec
     */
     public weak var scrollingNavbarDelegate: ScrollingNavigationControllerDelegate?
 
+    public private(set) var gestureRecognizer: UIPanGestureRecognizer?
     var delayDistance: CGFloat = 0
     var maxDelay: CGFloat = 0
-    var gestureRecognizer: UIPanGestureRecognizer?
     var scrollableView: UIView?
     var lastContentOffset = CGFloat(0.0)
 
@@ -166,17 +166,19 @@ public class ScrollingNavigationController: UINavigationController, UIGestureRec
     // MARK: - Gesture recognizer
 
     func handlePan(gesture: UIPanGestureRecognizer) {
-        if let superview = scrollableView?.superview {
-            let translation = gesture.translationInView(superview)
-            let delta = lastContentOffset - translation.y
-            lastContentOffset = translation.y
-
-            if shouldScrollWithDelta(delta) {
-                scrollWithDelta(delta)
+        if gesture.state != .Failed {
+            if let superview = scrollableView?.superview {
+                let translation = gesture.translationInView(superview)
+                let delta = lastContentOffset - translation.y
+                lastContentOffset = translation.y
+                
+                if shouldScrollWithDelta(delta) {
+                    scrollWithDelta(delta)
+                }
             }
         }
 
-        if gesture.state == .Ended || gesture.state == .Cancelled {
+        if gesture.state == .Ended || gesture.state == .Cancelled || gesture.state == .Failed {
             checkForPartialScroll()
             lastContentOffset = 0
         }
@@ -291,7 +293,7 @@ public class ScrollingNavigationController: UINavigationController, UIGestureRec
         // Move the navigation bar
         frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y - delta)
         navigationBar.frame = frame
-        
+
         // Resize the view if the navigation bar is not translucent
         if !navigationBar.translucent {
             let navBarY = navigationBar.frame.origin.y + navigationBar.frame.size.height
