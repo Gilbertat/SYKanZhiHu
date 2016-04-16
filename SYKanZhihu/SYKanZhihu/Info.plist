@@ -33,14 +33,14 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>tab_picks_cli.png</string>
 		</dict>
-        <dict>
-            <key>UIApplicationShortcutItemType</key>
-            <string>com.bitwaker.SYKanZhihu</string>
-            <key>UIApplicationShortcutItemTitle</key>
-            <string>用户排行</string>
-            <key>UIApplicationShortcutItemIconFile</key>
-            <string>tab_trend_cli.png</string>
-        </dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.bitwaker.SYKanZhihu</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>用户排行</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>tab_trend_cli.png</string>
+		</dict>
 	</array>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
