@@ -28,7 +28,7 @@ class SYHttp {
         Alamofire.request(.GET, url, parameters: params).responseString(completionHandler: {response in
             switch response.result {
             case.Success(_):
-                Log.debug("请求地址为: \(url) 参数为: \(params)")
+               // Log.debug("请求地址为: \(url) 参数为: \(params)")
                 success(json:response.data!)
                 
             case .Failure(let error):
@@ -52,7 +52,7 @@ class SYHttp {
         Alamofire.request(.POST, url,parameters:params as? [String : AnyObject]).responseString(completionHandler: {response in
             switch response.result {
             case .Success(_):
-                Log.debug("请求地址为: \(url) 参数为: \(params)")
+             //   Log.debug("请求地址为: \(url) 参数为: \(params)")
                 success(json: response.data!)
             case .Failure(let error):
                 print(error)
