@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class SYConsentTableViewCell: UITableViewCell {
     
@@ -14,7 +34,7 @@ class SYConsentTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     
-    func refreshView(model:ConsentModel) {
+    func refreshView(_ model:ConsentModel) {
         
         let vote = Double(model.agree!)
         var stringVote = ""
@@ -38,7 +58,7 @@ class SYConsentTableViewCell: UITableViewCell {
     
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

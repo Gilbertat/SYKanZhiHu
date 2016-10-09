@@ -6,6 +6,7 @@
     <a href="https://travis-ci.org/delba/Log"><img alt="Travis Status" src="https://img.shields.io/travis/delba/Log.svg"/></a>
     <a href="https://img.shields.io/cocoapods/v/Log.svg"><img alt="CocoaPods compatible" src="https://img.shields.io/cocoapods/v/Log.svg"/></a>
     <a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
+    <a href="https://img.shields.io/cocoapods/p/Log.svg"><img alt="Platform" src="https://img.shields.io/cocoapods/p/Log.svg"/></a>
 </p>
 
 `Log` is a powerful logging framework that provides built-in themes and formatters, and a nice API to define your owns.
@@ -43,10 +44,10 @@ Log.enabled = false
 - Define a minimum level of severity to only print the messages with a greater or equal severity:
 
 ```swift
-Log.minLevel = .Warning
+Log.minLevel = .warning
 ```
 
-> The severity levels are `Trace`, `Debug`, `Info`, `Warning`, and `Error`.
+> The severity levels are `trace`, `debug`, `info`, `warning`, and `error`.
 
 #### Customization
 
@@ -56,18 +57,18 @@ A suggested way of doing it is by extending `Formatters` and `Themes`:
 
 ```swift
 extension Formatters {
-    static let Detailed = Formatter("[%@] %@.%@:%@ %@: %@", [
-        .Date("yyyy-MM-dd HH:mm:ss.SSS"),
-        .File(fullPath: false, fileExtension: false),
-        .Function,
-        .Line,
-        .Level,
-        .Message
+    static let detailed = Formatter("[%@] %@.%@:%@ %@: %@", [
+        .date("yyyy-MM-dd HH:mm:ss.SSS"),
+        .file(fullPath: false, fileExtension: false),
+        .function,
+        .line,
+        .level,
+        .message
     ])
 }
 
 extension Themes {
-    static let TomorrowNight = Theme(
+    static let tomorrowNight = Theme(
         trace:   "#C5C8C6",
         debug:   "#81A2BE",
         info:    "#B5BD68",
@@ -78,7 +79,7 @@ extension Themes {
 ```
 
 ```swift
-let Log = Logger(formatter: .Detailed, theme: .TomorrowNight)
+let Log = Logger(formatter: .detailed, theme: .tomorrowNight)
 ```
 
 <img src="https://raw.githubusercontent.com/delba/Log/assets/b.png">
@@ -90,11 +91,11 @@ let Log = Logger(formatter: .Detailed, theme: .TomorrowNight)
 Nothing prevents you from creating as many loggers as you want!
 
 ```swift
-let Basic = Logger(formatter: .Default, theme: nil)
+let Basic = Logger(formatter: .default, theme: nil)
 let Short = Logger(
-    formatter: Formatter("%@: %@", .Level, .Message),
-    theme:     .TomorrowNightEighties,
-    minLevel:  .Info
+    formatter: Formatter("%@: %@", .level, .message),
+    theme:     .tomorrowNightEighties,
+    minLevel:  .info
 )
 ```
 
@@ -117,7 +118,7 @@ struct User {
     }
 }
 
-Log.formatter = Formatter("[%@] %@: %@", .Block(User.token), .Level, .Message)
+Log.formatter = Formatter("[%@] %@: %@", .block(User.token), .level, .message)
 ```
 
 ## Installation
@@ -159,7 +160,7 @@ pod 'Log'
 
 ## License
 
-Copyright (c) 2015 Damien (http://delba.io)
+Copyright (c) 2015-2016 Damien (http://delba.io)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -4,9 +4,11 @@
 
 [![CocoaPods](https://cocoapod-badges.herokuapp.com/v/AMScrollingNavbar/badge.svg)](http://www.cocoapods.org/?q=amscrollingnavbar)
 [![Build Status](https://travis-ci.org/andreamazz/AMScrollingNavbar.svg)](https://travis-ci.org/andreamazz/AMScrollingNavbar)
+[![codecov.io](https://codecov.io/github/andreamazz/AMScrollingNavbar/coverage.svg?branch=master)](https://codecov.io/github/andreamazz/AMScrollingNavbar?branch=master)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![Swift 2.0](https://img.shields.io/badge/swift-2.0-orange.svg)
+![Swift 3](https://img.shields.io/badge/swift-3-orange.svg)
 [![Join the chat at https://gitter.im/andreamazz/AMScrollingNavbar](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/andreamazz/AMScrollingNavbar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=46FNZD4PDVNRU)
 
 A custom UINavigationController that enables the scrolling of the navigation bar alongside the
 scrolling of an observed content view  
@@ -20,7 +22,8 @@ scrolling of an observed content view
 ### Versioning notes
 
 Version `2.x` is written as a subclass of `UINavigationController`, in Swift.  
-Version `2.0.0` introduce Swift 2.0 syntax. Checkout `2.0.0.beta` for Swift 1.2.  
+Version `2.0.0` introduce Swift 2.0 syntax.
+Version `3.0.0` introduce Swift 3.0 syntax. 
 If you are looking for the category implementation in Objective-C, make sure to checkout version `1.x` and prior, although the `2.x` is recomended.
 
 #Screenshot
@@ -32,7 +35,7 @@ If you are looking for the category implementation in Objective-C, make sure to 
 #Setup with CocoaPods
 
 ```
-pod 'AMScrollingNavbar', '~> 2.0.1'
+pod 'AMScrollingNavbar'
 
 use_frameworks!
 ```
@@ -53,7 +56,7 @@ Use `followScrollView(_: delay:)` to start following the scrolling of a scrollab
 override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
 
-    if let navigationController = self.navigationController as? ScrollingNavigationController {
+    if let navigationController = navigationController as? ScrollingNavigationController {
         navigationController.followScrollView(tableView, delay: 50.0)
     }
 }
@@ -73,7 +76,7 @@ Use `stopFollowingScrollview()` to stop the behaviour. Remember to call this fun
 override func viewDidDisappear(animated: Bool) {
     super.viewDidDisappear(animated)
 
-    if let navigationController = self.navigationController as? ScrollingNavigationController {
+    if let navigationController = navigationController as? ScrollingNavigationController {
         navigationController.stopFollowingScrollView()
     }
 }
@@ -85,7 +88,7 @@ To DRY things up you can let your view controller subclass `ScrollingNavigationV
 override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
 
-    if let navigationController = self.navigationController as? ScrollingNavigationController {
+    if let navigationController = navigationController as? ScrollingNavigationController {
         navigationController.followScrollView(tableView, delay: 50.0)
     }
 }
@@ -94,20 +97,20 @@ override func viewWillAppear(animated: Bool) {
 ##ScrollingNavigationControllerDelegate
 You can set a delegate to receive a call when the state of the navigation bar changes:
 ```swift
-if let navigationController = self.navigationController as? ScrollingNavigationController {
+if let navigationController = navigationController as? ScrollingNavigationController {
     navigationController.scrollingNavbarDelegate = self
 }
 ```
 
 Delegate function:
 ```swift
-func scrollingNavigationController(controller: ScrollingNavigationController, didChangeState state: NavigationBarState) {
+func scrollingNavigationController(_ controller: ScrollingNavigationController, didChangeState state: NavigationBarState) {
     switch state {
-    case .Collapsed:
+    case .collapsed:
         print("navbar collapsed")
-    case .Expanded:
+    case .expanded:
         print("navbar expanded")
-    case .Scrolling:
+    case .scrolling:
         print("navbar is moving")
     }
 }
@@ -118,7 +121,7 @@ If the view controller with the scroll view pushes new controllers, you should c
 ```swift
 override func viewWillDisappear(animated: Bool) {
   super.viewWillDisappear(animated)
-    if let navigationController = self.navigationController as? ScrollingNavigationController {
+    if let navigationController = navigationController as? ScrollingNavigationController {
       navigationController.showNavbar(animated: true)
     }
 }
@@ -129,7 +132,7 @@ When the user taps the status bar, by default a scrollable view scrolls to the t
 
 ```swift
 override func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
-    if let navigationController = self.navigationController as? ScrollingNavigationController {
+    if let navigationController = navigationController as? ScrollingNavigationController {
         navigationController.showNavbar(animated: true)
     }
     return true
@@ -141,7 +144,7 @@ Check out the sample project for more details.
 #Author
 [Andrea Mazzini](https://twitter.com/theandreamazz). I'm available for freelance work, feel free to contact me. 
 
-Want to support the development of [these free libraries](https://cocoapods.org/owners/734)? Buy me a coffee ☕️ via [Paypal](https://www.paypal.me/andreamazzini).  
+Want to support the development of [these free libraries](https://cocoapods.org/owners/734)? Buy me a coffee ☕️ via [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=46FNZD4PDVNRU).  
 
 #Contributors
 [Syo Ikeda](https://github.com/ikesyo) and [everyone](https://github.com/andreamazz/AMScrollingNavbar/graphs/contributors) kind enough to submit a pull request. 

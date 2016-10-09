@@ -32,17 +32,17 @@ class SYRankingViewController: UIViewController {
         } else {
             urlString = "\(urlString)agree"
         }
-        urlString = "\(urlString)/\(++self.page)/50"
+        urlString = "\(urlString)/\(self.page += 1)/50"
         
         SYHttp.get(urlString, params: nil, success: { [unowned self] (json) -> Void in
-            let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
+            let data = try? JSONSerialization.jsonObject(with: json as! Data, options: [])
             let array:NSArray = (data!["topuser"] as? NSArray)!
-            self.otherArray.addObjectsFromArray(array as [AnyObject])
+            self.otherArray.addObjects(from: array as [AnyObject])
             for dict in array {
                 let userModel:topUserModel = topUserModel(dict: dict as! NSDictionary)
                 self.dataSource.append(userModel)
             }
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
             })
             
@@ -52,7 +52,7 @@ class SYRankingViewController: UIViewController {
         
     }
     
-    @IBAction func changeAction(sender: AnyObject) {
+    @IBAction func changeAction(_ sender: AnyObject) {
         self.page = 0
         self.dataSource = Array()
         self.otherArray = NSMutableArray()
@@ -60,11 +60,11 @@ class SYRankingViewController: UIViewController {
         self.loadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showUser" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let model:topUserModel = self.dataSource[indexPath.row]
-                let destinationController = segue.destinationViewController as! SYUserViewController
+                let model:topUserModel = self.dataSource[(indexPath as NSIndexPath).row]
+                let destinationController = segue.destination as! SYUserViewController
                 destinationController.userHash = model.hash!
                 destinationController.title = model.name
             }
@@ -80,24 +80,24 @@ class SYRankingViewController: UIViewController {
 extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
 
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let model:topUserModel = self.dataSource[indexPath.row]
-        let other = self.otherArray[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("topUser", forIndexPath: indexPath) as! SYTopUserTableViewCell
-        cell.avatarImageView.kf_setImageWithURL(NSURL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+        let model:topUserModel = self.dataSource[(indexPath as NSIndexPath).row]
+        let other = self.otherArray[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "topUser", for: indexPath) as! SYTopUserTableViewCell
+        cell.avatarImageView.kf_setImageWithURL(URL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
             UIGraphicsBeginImageContextWithOptions(cell.avatarImageView.bounds.size, false, UIScreen.mainScreen().scale)
             UIBezierPath(roundedRect: cell.avatarImageView.bounds, cornerRadius: 30).addClip()
             
@@ -107,7 +107,7 @@ extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
             
         }
         cell.nameLabel.text = model.name
-        cell.indexLabel.text = "\(indexPath.row + 1)"
+        cell.indexLabel.text = "\((indexPath as NSIndexPath).row + 1)"
         cell.SignatureLabel.text = model.signature
         
         var string = other["follower"]!
@@ -122,8 +122,8 @@ extension SYRankingViewController:UITableViewDataSource,UITableViewDelegate {
         return cell
     }
 
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == self.dataSource.count - 1 && self.page < 10 {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).row == self.dataSource.count - 1 && self.page < 10 {
             self.loadData()
         }
     }

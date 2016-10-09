@@ -23,17 +23,17 @@ class SYUserViewController: UIViewController {
         
         tableView.estimatedRowHeight = 170
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.userInteractionEnabled = true
+        tableView.isUserInteractionEnabled = true
   
         requestData(userHash)
         
     }
     
-    func requestData(userHash:String) {
+    func requestData(_ userHash:String) {
         
         let url = "\(ApiConfig.API_User_Url)\(userHash)"
         SYHttp.get(url, params:nil, success: { (json) -> Void in
-            let data = try? NSJSONSerialization.JSONObjectWithData(json as! NSData, options: [])
+            let data = try? JSONSerialization.jsonObject(with: json as! Data, options: [])
 
             let infoDict:NSDictionary = data as! NSDictionary
             let extraModel:NSDictionary = infoDict["detail"] as! NSDictionary
@@ -46,7 +46,7 @@ class SYUserViewController: UIViewController {
             self.infoModel = userModel(info: infoDict, extra: extraModel)
       
           
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            DispatchQueue.main.async { () -> Void in
                 self.tableView.reloadData()
             }
             
@@ -57,16 +57,16 @@ class SYUserViewController: UIViewController {
         
     }
     //跳转到用户主页
-    @IBAction func homePage(sender: AnyObject) {
+    @IBAction func homePage(_ sender: AnyObject) {
         
         let url = "\(ApiConfig.API_ZhPersonal_Url)/\(self.userHash)"
-        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+        UIApplication.shared.openURL(URL(string: url)!)
       
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "consent" {
-            let destinationViewController = segue.destinationViewController as! SYConsentViewController
+            let destinationViewController = segue.destination as! SYConsentViewController
             destinationViewController.dataSource = self.dataSource
         }
     }
@@ -81,21 +81,21 @@ class SYUserViewController: UIViewController {
 }
 extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
 {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.min
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if 1 == indexPath.section {
+        if 1 == (indexPath as NSIndexPath).section {
             return 44
         }
         else {
@@ -103,14 +103,14 @@ extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("userState", forIndexPath: indexPath) as! SYUserTableViewCell
+        if (indexPath as NSIndexPath).section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "userState", for: indexPath) as! SYUserTableViewCell
             if self.infoModel.name == nil {
              
             } else {
@@ -120,7 +120,7 @@ extension SYUserViewController:UITableViewDataSource,UITableViewDelegate
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("userTict", forIndexPath: indexPath) as! SYHighAnswerTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "userTict", for: indexPath) as! SYHighAnswerTableViewCell
             
             return cell
         }

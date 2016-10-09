@@ -9,7 +9,7 @@
 import Foundation
 
 let RefreshViewHeight:Float = 64.0 //refreshView高度
-let RefreshAnimationDuration:NSTimeInterval = 0.3 //刷新持续时间
+let RefreshAnimationDuration:TimeInterval = 0.3 //刷新持续时间
 
 let RefreshFooterToRefresh:String = "上拉加载更多数据"
 let RefreshFooterRelease:String = "松开立即加载更多数据"

@@ -1,7 +1,7 @@
 //
 // Theme.swift
 //
-// Copyright (c) 2015 Damien (http://delba.io)
+// Copyright (c) 2015-2016 Damien (http://delba.io)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,6 @@
 // SOFTWARE.
 //
 
-import Foundation
-
 public class Themes {}
 
 public class Theme: Themes {
@@ -32,9 +30,9 @@ public class Theme: Themes {
     
     /// The theme textual representation.
     internal var description: String {
-        return colors.keys.sort().map {
+        return colors.keys.sorted().map {
             $0.description.withColor(colors[$0]!)
-        }.joinWithSeparator(" ")
+        }.joined(separator: " ")
     }
     
     /**
@@ -50,11 +48,11 @@ public class Theme: Themes {
      */
     public init(trace: String, debug: String, info: String, warning: String, error: String) {
         self.colors = [
-            .Trace: Theme.formatHex(trace),
-            .Debug: Theme.formatHex(debug),
-            .Info: Theme.formatHex(info),
-            .Warning: Theme.formatHex(warning),
-            .Error: Theme.formatHex(error)
+            .trace:   Theme.formatHex(trace),
+            .debug:   Theme.formatHex(debug),
+            .info:    Theme.formatHex(info),
+            .warning: Theme.formatHex(warning),
+            .error:   Theme.formatHex(error)
         ]
     }
     
@@ -65,17 +63,17 @@ public class Theme: Themes {
      
      - returns: A string representation of the hex color.
      */
-    private static func formatHex(hex: String) -> String {
-        let scanner = NSScanner(string: hex)
+    private static func formatHex(_ hex: String) -> String {
+        let scanner = Scanner(string: hex)
         var hex: UInt32 = 0
         
-        scanner.charactersToBeSkipped = NSCharacterSet(charactersInString: "#")
-        scanner.scanHexInt(&hex)
+        scanner.charactersToBeSkipped = CharacterSet(charactersIn: "#")
+        scanner.scanHexInt32(&hex)
         
         let r = (hex & 0xFF0000) >> 16
-        let g = (hex & 0xFF00)  >> 8
+        let g = (hex & 0xFF00) >> 8
         let b = (hex & 0xFF)
         
-        return [r, g, b].map({ String($0) }).joinWithSeparator(",")
+        return [r, g, b].map({ String($0) }).joined(separator: ",")
     }
 }

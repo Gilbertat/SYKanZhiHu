@@ -1,7 +1,7 @@
 //
 // Logger.swift
 //
-// Copyright (c) 2015 Damien (http://delba.io)
+// Copyright (c) 2015-2016 Damien (http://delba.io)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,13 @@
 // SOFTWARE.
 //
 
-import Foundation
+private let benchmarker = Benchmarker()
 
 public enum Level {
-    case Trace, Debug, Info, Warning, Error
+    case trace, debug, info, warning, error
     
     var description: String {
-        return String(self).uppercaseString
+        return String(describing: self).uppercased()
     }
 }
 
@@ -42,7 +42,7 @@ public func <(x: Level, y: Level) -> Bool {
     return x.hashValue < y.hashValue
 }
 
-public class Logger {
+open class Logger {
     /// The logger state.
     public var enabled: Bool = true
     
@@ -68,7 +68,7 @@ public class Logger {
     }
     
     /// The queue used for logging.
-    private let queue = dispatch_queue_create("delba.log", DISPATCH_QUEUE_SERIAL)
+    private let queue = DispatchQueue(label: "delba.log")
     
     /**
      Creates and returns a new logger.
@@ -79,7 +79,7 @@ public class Logger {
      
      - returns: A newly created logger.
      */
-    public init(formatter: Formatter = .Default, theme: Theme? = .Default, minLevel: Level = .Trace) {
+    public init(formatter: Formatter = .default, theme: Theme? = nil, minLevel: Level = .trace) {
         self.formatter = formatter
         self.theme = theme
         self.minLevel = minLevel
@@ -98,8 +98,8 @@ public class Logger {
      - parameter column:     The column at which the log happens.
      - parameter function:   The function in which the log happens.
      */
-    public func trace(items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
-        log(.Trace, items, separator, terminator, file, line, column, function)
+    open func trace(_ items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
+        log(.trace, items, separator, terminator, file, line, column, function)
     }
     
     /**
@@ -113,8 +113,8 @@ public class Logger {
      - parameter column:     The column at which the log happens.
      - parameter function:   The function in which the log happens.
      */
-    public func debug(items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
-        log(.Debug, items, separator, terminator, file, line, column, function)
+    open func debug(_ items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
+        log(.debug, items, separator, terminator, file, line, column, function)
     }
     
     /**
@@ -128,8 +128,8 @@ public class Logger {
      - parameter column:     The column at which the log happens.
      - parameter function:   The function in which the log happens.
      */
-    public func info(items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
-        log(.Info, items, separator, terminator, file, line, column, function)
+    open func info(_ items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
+        log(.info, items, separator, terminator, file, line, column, function)
     }
     
     /**
@@ -143,8 +143,8 @@ public class Logger {
      - parameter column:     The column at which the log happens.
      - parameter function:   The function in which the log happens.
      */
-    public func warning(items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
-        log(.Warning, items, separator, terminator, file, line, column, function)
+    open func warning(_ items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
+        log(.warning, items, separator, terminator, file, line, column, function)
     }
     
     /**
@@ -158,10 +158,10 @@ public class Logger {
      - parameter column:     The column at which the log happens.
      - parameter function:   The function in which the log happens.
      */
-    public func error(items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
-        log(.Error, items, separator, terminator, file, line, column, function)
+    open func error(_ items: Any..., separator: String = " ", terminator: String = "\n", file: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
+        log(.error, items, separator, terminator, file, line, column, function)
     }
-
+    
     /**
      Logs a message.
      
@@ -174,10 +174,10 @@ public class Logger {
      - parameter column:     The column at which the log happens.
      - parameter function:   The function in which the log happens.
      */
-    private func log(level: Level, _ items: [Any], _ separator: String, _ terminator: String, _ file: String, _ line: Int, _ column: Int, _ function: String) {
+    private func log(_ level: Level, _ items: [Any], _ separator: String, _ terminator: String, _ file: String, _ line: Int, _ column: Int, _ function: String) {
         guard enabled && level >= minLevel else { return }
         
-        let date = NSDate()
+        let date = Date()
         
         let result = formatter.format(
             level: level,
@@ -191,8 +191,42 @@ public class Logger {
             date: date
         )
         
-        dispatch_async(queue) {
+        queue.async {
             Swift.print(result, separator: "", terminator: "")
+        }
+    }
+    
+    /**
+     Measures the performance of code.
+     
+     - parameter description: The measure description.
+     - parameter n:           The number of iterations.
+     - parameter file:        The file in which the measure happens.
+     - parameter line:        The line at which the measure happens.
+     - parameter column:      The column at which the measure happens.
+     - parameter function:    The function in which the measure happens.
+     - parameter block:       The block to measure.
+     */
+    public func measure(_ description: String? = nil, iterations n: Int = 10, file: String = #file, line: Int = #line, column: Int = #column, function: String = #function, block: () -> Void) {
+        guard enabled && .debug >= minLevel else { return }
+        
+        let measure = benchmarker.measure(description, iterations: n, block: block)
+        
+        let date = Date()
+        
+        let result = formatter.format(
+            description: measure.description,
+            average: measure.average,
+            relativeStandardDeviation: measure.relativeStandardDeviation,
+            file: file,
+            line: line,
+            column: column,
+            function: function,
+            date: date
+        )
+        
+        queue.async {
+            Swift.print(result)
         }
     }
 }

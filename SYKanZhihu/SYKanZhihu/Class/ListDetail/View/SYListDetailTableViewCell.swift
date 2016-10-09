@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class SYListDetailTableViewCell: UITableViewCell {
 
@@ -15,9 +35,9 @@ class SYListDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var SummaryLabel: UILabel!
     
-    func setAnswer(model:ListDetailModel) {
+    func setAnswer(_ model:ListDetailModel) {
         
-        self.avaterImg.kf_setImageWithURL(NSURL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
+        self.avaterImg.kf_setImageWithURL(URL(string: model.avatar!)!, placeholderImage: UIImage(named:"DefaultAvatar"), optionsInfo: nil) { (image, error, cacheType, imageURL) -> () in
             
             UIGraphicsBeginImageContextWithOptions(self.avaterImg.bounds.size, false, UIScreen.mainScreen().scale)
             UIBezierPath(roundedRect: self.avaterImg.bounds, cornerRadius: 12.5).addClip()
@@ -45,7 +65,7 @@ class SYListDetailTableViewCell: UITableViewCell {
         } else {
             self.SummaryLabel.text = model.summary
         }
-        self.authorLabel.setTitle(model.authorname, forState: .Normal)
+        self.authorLabel.setTitle(model.authorname, for: UIControlState())
     }
     
     //swift getter setter 方法
@@ -61,21 +81,21 @@ class SYListDetailTableViewCell: UITableViewCell {
         }
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         //切左下右下圆角 添加border
         let borderLayer = CAShapeLayer()
         borderLayer.frame = self.bounds
-        borderLayer.path = UIBezierPath(roundedRect:self.bounds, byRoundingCorners:[.BottomLeft,.BottomRight], cornerRadii: CGSizeMake(5.0, 5.0)).CGPath
-        borderLayer.shadowPath = UIBezierPath(rect: self.bounds).CGPath
+        borderLayer.path = UIBezierPath(roundedRect:self.bounds, byRoundingCorners:[.bottomLeft,.bottomRight], cornerRadii: CGSize(width: 5.0, height: 5.0)).cgPath
+        borderLayer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         borderLayer.lineWidth = 0.5
-        borderLayer.strokeColor = UIColor.lightGrayColor().CGColor
-        borderLayer.fillColor = UIColor.clearColor().CGColor
+        borderLayer.strokeColor = UIColor.lightGray.cgColor
+        borderLayer.fillColor = UIColor.clear.cgColor
         
         let layers:NSArray = self.layer.sublayers! as NSArray
         
-        if ((layers.lastObject!.isKindOfClass(CAShapeLayer))) {
-            layers.lastObject?.removeFromSuperlayer()
+        if (((layers.lastObject! as AnyObject).isKind(of: CAShapeLayer))) {
+            (layers.lastObject as AnyObject).removeFromSuperlayer()
         }
         self.layer.addSublayer(borderLayer)
 
@@ -89,7 +109,7 @@ class SYListDetailTableViewCell: UITableViewCell {
     }
     
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

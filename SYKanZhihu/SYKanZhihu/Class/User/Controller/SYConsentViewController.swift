@@ -35,18 +35,18 @@ class SYConsentViewController: UIViewController {
 }
 extension SYConsentViewController:UITableViewDataSource,UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
         
-        let model:ConsentModel = self.dataSource[indexPath.row]
+        let model:ConsentModel = self.dataSource[(indexPath as NSIndexPath).row]
         var url = ""
         if model.ispost == "0" {
             url = ApiConfig.API_ZhiHu_Url + model.link!
@@ -54,13 +54,13 @@ extension SYConsentViewController:UITableViewDataSource,UITableViewDelegate {
             url = ApiConfig.API_ZhuanLan_Url + model.link!
         }
         
-        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+        UIApplication.shared.openURL(URL(string: url)!)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("consent", forIndexPath: indexPath) as! SYConsentTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "consent", for: indexPath) as! SYConsentTableViewCell
         
-        let model:ConsentModel = self.dataSource[indexPath.row]
+        let model:ConsentModel = self.dataSource[(indexPath as NSIndexPath).row]
         
         cell.refreshView(model)
         

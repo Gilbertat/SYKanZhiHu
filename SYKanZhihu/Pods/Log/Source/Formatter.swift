@@ -1,7 +1,7 @@
 //
 // Formatter.swift
 //
-// Copyright (c) 2015 Damien (http://delba.io)
+// Copyright (c) 2015-2016 Damien (http://delba.io)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,18 +22,16 @@
 // SOFTWARE.
 //
 
-import Foundation
-
 public enum Component {
-    case Date(String)
-    case Message
-    case Level
-    case File(fullPath: Bool, fileExtension: Bool)
-    case Line
-    case Column
-    case Function
-    case Location
-    case Block(() -> Any?)
+    case date(String)
+    case message
+    case level
+    case file(fullPath: Bool, fileExtension: Bool)
+    case line
+    case column
+    case function
+    case location
+    case block(() -> Any?)
 }
 
 public class Formatters {}
@@ -46,15 +44,15 @@ public class Formatter: Formatters {
     private var components: [Component]
     
     /// The date formatter.
-    private let dateFormatter = NSDateFormatter()
+    fileprivate let dateFormatter = DateFormatter()
     
     /// The formatter logger.
     internal weak var logger: Logger!
     
     /// The formatter textual representation.
     internal var description: String {
-        return String(format: format, arguments: components.map { (component: Component) -> CVarArgType in
-            return String(component).uppercaseString
+        return String(format: format, arguments: components.map { (component: Component) -> CVarArg in
+            return String(describing: component).uppercased()
         })
     }
     
@@ -98,31 +96,73 @@ public class Formatter: Formatters {
      
      - returns: A formatted string.
      */
-    internal func format(level level: Level, items: [Any], separator: String, terminator: String, file: String, line: Int, column: Int, function: String, date: NSDate) -> String {
-        let arguments = components.map { (component: Component) -> CVarArgType in
+    internal func format(level: Level, items: [Any], separator: String, terminator: String, file: String, line: Int, column: Int, function: String, date: Date) -> String {
+        let arguments = components.map { (component: Component) -> CVarArg in
             switch component {
-            case .Date(let dateFormat):
+            case .date(let dateFormat):
                 return format(date: date, dateFormat: dateFormat)
-            case .File(let fullPath, let fileExtension):
+            case .file(let fullPath, let fileExtension):
                 return format(file: file, fullPath: fullPath, fileExtension: fileExtension)
-            case .Function:
+            case .function:
                 return String(function)
-            case .Line:
+            case .line:
                 return String(line)
-            case .Column:
+            case .column:
                 return String(column)
-            case .Level:
+            case .level:
                 return format(level: level)
-            case .Message:
-                return items.map({ String($0) }).joinWithSeparator(separator)
-            case .Location:
+            case .message:
+                return items.map({ String(describing: $0) }).joined(separator: separator)
+            case .location:
                 return format(file: file, line: line)
-            case .Block(let block):
-                return block().flatMap({ String($0) }) ?? ""
+            case .block(let block):
+                return block().flatMap({ String(describing: $0) }) ?? ""
             }
         }
         
         return String(format: format, arguments: arguments) + terminator
+    }
+    
+    /**
+     Formats a string with the formatter format and components.
+     
+     - parameter description:               The measure description.
+     - parameter average:                   The average time.
+     - parameter relativeStandardDeviation: The relative standard description.
+     - parameter file:                      The log file path.
+     - parameter line:                      The log line number.
+     - parameter column:                    The log column number.
+     - parameter function:                  The log function.
+     - parameter date:                      The log date.
+     
+     - returns: A formatted string.
+     */
+    func format(description: String?, average: Double, relativeStandardDeviation: Double, file: String, line: Int, column: Int, function: String, date: Date) -> String {
+        
+        let arguments = components.map { (component: Component) -> CVarArg in
+            switch component {
+            case .date(let dateFormat):
+                return format(date: date, dateFormat: dateFormat)
+            case .file(let fullPath, let fileExtension):
+                return format(file: file, fullPath: fullPath, fileExtension: fileExtension)
+            case .function:
+                return String(function)
+            case .line:
+                return String(line)
+            case .column:
+                return String(column)
+            case .level:
+                return format(description: description)
+            case .message:
+                return format(average: average, relativeStandardDeviation: relativeStandardDeviation)
+            case .location:
+                return format(file: file, line: line)
+            case .block(let block):
+                return block().flatMap({ String(describing: $0) }) ?? ""
+            }
+        }
+        
+        return String(format: format, arguments: arguments)
     }
 }
 
@@ -135,9 +175,9 @@ private extension Formatter {
      
      - returns: A formatted date.
      */
-    func format(date date: NSDate, dateFormat: String) -> String {
+    func format(date: Date, dateFormat: String) -> String {
         dateFormatter.dateFormat = dateFormat
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
     /**
@@ -149,7 +189,7 @@ private extension Formatter {
      
      - returns: A formatted file path.
      */
-    func format(file file: String, fullPath: Bool, fileExtension: Bool) -> String {
+    func format(file: String, fullPath: Bool, fileExtension: Bool) -> String {
         var file = file
         
         if !fullPath      { file = file.lastPathComponent }
@@ -166,11 +206,11 @@ private extension Formatter {
      
      - returns: A formatted Location component.
      */
-    func format(file file: String, line: Int) -> String {
+    func format(file: String, line: Int) -> String {
         return [
             format(file: file, fullPath: false, fileExtension: true),
             String(line)
-        ].joinWithSeparator(":")
+        ].joined(separator: ":")
     }
     
     /**
@@ -180,7 +220,7 @@ private extension Formatter {
      
      - returns: A formatted Level component.
      */
-    func format(level level: Level) -> String {
+    func format(level: Level) -> String {
         let text = level.description
         
         if let color = logger.theme?.colors[level] {
@@ -189,27 +229,87 @@ private extension Formatter {
         
         return text
     }
-}
-
-internal extension String {
-    /// The last path component of the receiver.
-    var lastPathComponent: String {
-        return NSString(string: self).lastPathComponent
-    }
     
-    /// A new string made by deleting the extension from the receiver.
-    var stringByDeletingPathExtension: String {
-        return NSString(string: self).stringByDeletingPathExtension
+    /**
+     Formats a measure description.
+     
+     - parameter description: The measure description.
+     
+     - returns: A formatted measure description.
+     */
+    func format(description: String?) -> String {
+        var text = "MEASURE"
+        
+        if let color = logger.theme?.colors[.debug] {
+            text = text.withColor(color)
+        }
+        
+        if let description = description {
+            text = "\(text) \(description)"
+        }
+        
+        return text
     }
     
     /**
-     Returns a string colored with the specified color.
+     Formats an average time and a relative standard deviation.
      
-     - parameter color: The string representation of the color.
+     - parameter average:                   The average time.
+     - parameter relativeStandardDeviation: The relative standard deviation.
      
-     - returns: A string colored with the specified color.
+     - returns: A formatted average time and relative standard deviation.
      */
-    func withColor(color: String) -> String {
-        return "\u{001b}[fg\(color);\(self)\u{001b}[;"
+    func format(average: Double, relativeStandardDeviation: Double) -> String {
+        let average = format(average: average)
+        let relativeStandardDeviation = format(relativeStandardDeviation: relativeStandardDeviation)
+        
+        return "Time: \(average) sec (\(relativeStandardDeviation) STDEV)"
+    }
+    
+    /**
+     Formats an average time.
+     
+     - parameter average: An average time.
+     
+     - returns: A formatted average time.
+     */
+    func format(average: Double) -> String {
+        return String(format: "%.3f", average)
+    }
+    
+    /**
+     Formats a list of durations.
+     
+     - parameter durations: A list of durations.
+     
+     - returns: A formatted list of durations.
+     */
+    func format(durations: [Double]) -> String {
+        var format = Array(repeating: "%.6f", count: durations.count).joined(separator: ", ")
+        format = "[\(format)]"
+        
+        return String(format: format, arguments: durations.map{ $0 as CVarArg })
+    }
+    
+    /**
+     Formats a standard deviation.
+     
+     - parameter standardDeviation: A standard deviation.
+     
+     - returns: A formatted standard deviation.
+     */
+    func format(standardDeviation: Double) -> String {
+        return String(format: "%.6f", standardDeviation)
+    }
+    
+    /**
+     Formats a relative standard deviation.
+     
+     - parameter relativeStandardDeviation: A relative standard deviation.
+     
+     - returns: A formatted relative standard deviation.
+     */
+    func format(relativeStandardDeviation: Double) -> String {
+        return String(format: "%.3f%%", relativeStandardDeviation)
     }
 }

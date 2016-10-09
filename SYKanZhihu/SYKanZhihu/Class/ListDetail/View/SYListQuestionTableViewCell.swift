@@ -23,19 +23,19 @@ class SYListQuestionTableViewCell: UITableViewCell {
             super.frame = frame
         }
     }
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         //切左上右上圆角 添加border
         let borderLayer = CAShapeLayer()
         borderLayer.frame = self.bounds
-        borderLayer.path = UIBezierPath(roundedRect:self.bounds, byRoundingCorners: [.TopLeft,.TopRight], cornerRadii: CGSizeMake(5.0, 5.0)).CGPath
+        borderLayer.path = UIBezierPath(roundedRect:self.bounds, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 5.0, height: 5.0)).cgPath
         borderLayer.lineWidth = 0.5
-        borderLayer.strokeColor = UIColor.lightGrayColor().CGColor
-        borderLayer.fillColor = UIColor.clearColor().CGColor
+        borderLayer.strokeColor = UIColor.lightGray.cgColor
+        borderLayer.fillColor = UIColor.clear.cgColor
         
         let layers:NSArray = self.layer.sublayers! as NSArray
         
-        if ((layers.lastObject!.isKindOfClass(CAShapeLayer))) {
-            layers.lastObject?.removeFromSuperlayer()
+        if (((layers.lastObject! as AnyObject).isKind(of: CAShapeLayer()))) {
+            (layers.lastObject as AnyObject).removeFromSuperlayer()
         }
         self.layer.addSublayer(borderLayer)
         

@@ -21,9 +21,10 @@ class SYHttp {
      - parameter fail:    请求失败回调
      */
     
-    static func get(var url:String, params:[String:AnyObject]?, success:(json:AnyObject) -> Void,fail:(error:Any) ->Void) {
+    static func get(_ url:String, params:[String:AnyObject]?, success:@escaping (_ json:AnyObject) -> Void,fail:@escaping (_ error:Any) ->Void) {
+        var url = url
         
-        url = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         Alamofire.request(.GET, url, parameters: params).responseString(completionHandler: {response in
             switch response.result {
@@ -47,7 +48,7 @@ class SYHttp {
      - parameter fail:    请求失败回调
      */
     
-    static func post(url:String, params:NSDictionary, success:(json:AnyObject) -> Void, fail:(error:Any) ->Void) {
+    static func post(_ url:String, params:NSDictionary, success:@escaping (_ json:AnyObject) -> Void, fail:@escaping (_ error:Any) ->Void) {
         
         Alamofire.request(.POST, url,parameters:params as? [String : AnyObject]).responseString(completionHandler: {response in
             switch response.result {

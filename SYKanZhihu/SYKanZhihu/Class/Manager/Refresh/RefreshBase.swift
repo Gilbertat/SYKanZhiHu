@@ -11,16 +11,16 @@ import UIKit
 
 //刷新状态
 enum RefreshState {
-    case Pulling            //松开刷新的状态
-    case Normal             //普通状态（没刷新）
-    case Refreshing         //正在刷新的状态
-    case WillRefreshing
+    case pulling            //松开刷新的状态
+    case normal             //普通状态（没刷新）
+    case refreshing         //正在刷新的状态
+    case willRefreshing
 }
 
 //控件位置
 enum RefreshViewPosition {
-    case Header //头部控件
-    case Footer //底部控件
+    case header //头部控件
+    case footer //底部控件
 }
 //刷新文字颜色
 let labelTextColor = UIColor(red: 150.0 / 255.0, green: 150.0 / 255.0, blue: 150.0 / 255.0, alpha: 1.0)
@@ -41,7 +41,7 @@ class RefreshBaseView:UIView {
     
     var oldState:RefreshState? //初始状态
     
-    var state:RefreshState = RefreshState.Normal {
+    var state:RefreshState = RefreshState.normal {
         willSet {
         
         }
@@ -51,8 +51,8 @@ class RefreshBaseView:UIView {
     }
     
     //设置状态
-    func setState(newValue:RefreshState) {
-        if self.state != RefreshState.Refreshing { //如果当前状态不是在刷新
+    func setState(_ newValue:RefreshState) {
+        if self.state != RefreshState.refreshing { //如果当前状态不是在刷新
             scrollviewOriginalInset = self.scrollView.contentInset
         }
         
@@ -61,19 +61,19 @@ class RefreshBaseView:UIView {
         }
         
         switch newValue {
-        case .Normal:
-            self.arrowImageView.hidden = false
+        case .normal:
+            self.arrowImageView.isHidden = false
             self.activityView.stopAnimating()
             
-        case .Pulling:
+        case .pulling:
             break
             
-        case .Refreshing:
-            self.arrowImageView.hidden = true
+        case .refreshing:
+            self.arrowImageView.isHidden = true
             activityView.startAnimating()
             beginRefreshingCallBack!()
             
-        case .WillRefreshing:
+        case .willRefreshing:
             break
         }
         
@@ -84,50 +84,50 @@ class RefreshBaseView:UIView {
         super.init(frame: frame)
         //刷新状态文字
         self.statusLabel = UILabel()
-        statusLabel.autoresizingMask = .FlexibleWidth
-        statusLabel.font = UIFont.boldSystemFontOfSize(13)
+        statusLabel.autoresizingMask = .flexibleWidth
+        statusLabel.font = UIFont.boldSystemFont(ofSize: 13)
         statusLabel.textColor = labelTextColor
-        statusLabel.backgroundColor = UIColor.clearColor()
-        statusLabel.textAlignment = .Center
+        statusLabel.backgroundColor = UIColor.clear
+        statusLabel.textAlignment = .center
         self.addSubview(statusLabel)
         
         //箭头图片
         self.arrowImageView = UIImageView(image: UIImage(named: "arrow.png"))
-        self.arrowImageView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin]
+        self.arrowImageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         self.addSubview(self.arrowImageView)
         
         //菊花
-        self.activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        self.activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         self.activityView.bounds = self.arrowImageView.bounds
         self.activityView.autoresizingMask = self.arrowImageView.autoresizingMask
         self.addSubview(activityView)
         
         //刷新视图属性
-        self.autoresizingMask = .FlexibleWidth
-        self.backgroundColor = UIColor.clearColor()
+        self.autoresizingMask = .flexibleWidth
+        self.backgroundColor = UIColor.clear
         
         //设置默认状态
-        self.state = .Normal
+        self.state = .normal
         
     }
     //当layout需要调整时自动调用
     override func layoutSubviews() {
         super.layoutSubviews()
         let arrowX:CGFloat = self.frame.size.width * 0.5 - 100
-        self.arrowImageView.center = CGPointMake(arrowX, self.frame.size.height * 0.5)
+        self.arrowImageView.center = CGPoint(x: arrowX, y: self.frame.size.height * 0.5)
         self.activityView.center = self.arrowImageView.center
     }
     
     //移除
-    override func willMoveToSuperview(newSuperview: UIView?) {
-        super.willMoveToSuperview(newSuperview)
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
         
         if self.superview != nil {
             self.superview?.removeObserver(self, forKeyPath: RefreshContentSize, context:nil)
         }
         
         if newSuperview != nil {
-            newSuperview?.addObserver(self, forKeyPath: RefreshContentOffSet, options: .New, context:nil)
+            newSuperview?.addObserver(self, forKeyPath: RefreshContentOffSet, options: .new, context:nil)
             var rect:CGRect = self.frame
             rect.size.width = (newSuperview?.frame.size.width)!
             rect.origin.x = 0
@@ -140,26 +140,26 @@ class RefreshBaseView:UIView {
     }
     
     //显示在屏幕上
-    override func drawRect(rect: CGRect) {
-        superview?.drawRect(rect)
-        if self.state == .WillRefreshing {
-            self.state = .Refreshing
+    override func draw(_ rect: CGRect) {
+        superview?.draw(rect)
+        if self.state == .willRefreshing {
+            self.state = .refreshing
         }
     }
     
     //刷新
     //判断是否在刷新
     func isRefreshing() -> Bool {
-        return RefreshState.Refreshing == self.state
+        return RefreshState.refreshing == self.state
     }
     
     //开始刷新
     func beginRefreshing() {
         if self.window != nil {
-            self.state = .Refreshing
+            self.state = .refreshing
         }
         else {
-            state = .WillRefreshing
+            state = .willRefreshing
             superview?.setNeedsDisplay()
         }
     }
@@ -167,10 +167,10 @@ class RefreshBaseView:UIView {
     //结束刷新
     func endRefreshing() {
         let delayInSeconds = 0.3
-        let popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds))
+        let popTime:DispatchTime = DispatchTime.now() + Double(Int64(delayInSeconds)) / Double(NSEC_PER_SEC)
         
-        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
-            self.state = .Normal
+        DispatchQueue.main.asyncAfter(deadline: popTime) { () -> Void in
+            self.state = .normal
         }
     }
 

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2CFB82E9781FE0D85F22A183'
+               BlueprintIdentifier = '4A4675641A79354FFD346F70E9B28DCB'
                BlueprintName = 'EasyPull'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'EasyPull.framework'>

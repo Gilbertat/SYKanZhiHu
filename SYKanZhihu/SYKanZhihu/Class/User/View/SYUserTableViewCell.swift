@@ -24,11 +24,11 @@ class SYUserTableViewCell: UITableViewCell {
         
     }
     
-    func receiveUserModel(userInfo:userModel) {
+    func receiveUserModel(_ userInfo:userModel) {
         
-        self.avaterImageView.kf_setImageWithURL(NSURL(string: userInfo.avatar!)!, placeholderImage: UIImage(named: "DefaultAvatar"))
+        self.avaterImageView.kf_setImageWithURL(URL(string: userInfo.avatar!)!, placeholderImage: UIImage(named: "DefaultAvatar"))
         let signLabel = UILabel()
-        signLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        signLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         signLabel.text = userInfo.signature
         if signLabel.text == "" {
             signLabel.text = userInfo.name
@@ -46,7 +46,7 @@ class SYUserTableViewCell: UITableViewCell {
     
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         
